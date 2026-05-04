@@ -162,3 +162,73 @@ Companies were selected with diversity targets (stage, license, license-change h
 Schema version is locked to `1.0` for the Free Preview. Schema changes require a minor version bump (`1.1`) and a CHANGELOG entry. Breaking schema changes require a major version bump (`2.0`) and migration scripts.
 
 Data changes (corrections, additions) are tracked in CHANGELOG with the date and reason. The dataset is treated as living: corrections are encouraged via PR.
+
+---
+
+## 7. Field-specific conventions
+
+These conventions emerged during data collection and apply to all companies in the Atlas. Documented here to ensure cross-company comparability.
+
+### 7.1 `identity.founded_year`
+Year of legal incorporation of the jurisdictional entity that currently operates the company. Name changes, pivots, or rebrandings that maintain the same legal entity do **not** reset the year. Refoundings (post-bankruptcy reorganization, spin-offs creating a new LLC, etc.) **do** reset the year.
+
+When in doubt, the SEC CIK number is the disambiguator: same CIK across decades = same legal entity, regardless of cosmetic renames.
+
+*Example: MongoDB Inc. = `2007`. Incorporated as 10gen, Inc. in Delaware in November 2007; renamed to MongoDB, Inc. in August 2013. Same Delaware entity, same SEC CIK 0001441816 — no reset.*
+
+### 7.2 `identity.hq_city`
+Canonical city name without redundancy. When the city name coincides with a state or country name (e.g., New York / NY; Mexico City / MX; Singapore as both city and country), use the canonical short form.
+
+The field name `hq_city` already implies city, so don't append `"City"` redundantly. For globally ambiguous cases, document the disambiguation in `metadata.notes`.
+
+*Example: `"New York"`, not `"New York City"`. `"Mexico City"`, not `"Mexico City, Mexico"`.*
+
+### 7.3 `identity.funding_stage`
+Reflects the **current** state of the company, not the most recent historical round. A public company that previously went through Series A→E goes with `"ipo"`, not `"series-e-plus"`. An acquired company goes with `"acquired"` regardless of how many rounds it had as independent entity.
+
+Detailed historical round-by-round funding data lives in `strategic_signals.funding_rounds_l24m` (last 24 months) and is intentionally a separate concept from `funding_stage`.
+
+### 7.4 `identity.total_raised_usd`
+
+**Public companies with S-1 / S-1A available:** derived from the **aggregate liquidation preference of redeemable convertible preferred stock** as disclosed in the final pre-IPO S-1/A capitalization table. This is treated as the closest verifiable proxy for total capital raised pre-IPO (assuming ~1× liquidation preference, which is industry-standard for VC preferred stock).
+
+Press-reported figures (Crunchbase, Wikipedia, tech press, podcast quotes) that disagree with the S-1 are **not** used as override; the SEC primary source takes precedence. When the discrepancy exceeds 5%, both figures and the discrepancy are documented in `metadata.notes` for transparency.
+
+**Private companies:** sum of disclosed funding rounds across press releases, Crunchbase (when accessible), and tech press, cross-referenced. When two sources disagree by >10%, document both and use the more authoritative.
+
+**Both:** the secondary source must confirm **structural consistency** (e.g., capital structure broadly aligned), not necessarily replicate the exact figure.
+
+*Example: MongoDB pre-IPO raise = `347207000` per S-1/A (2017-10-17), not the widely-cited ~USD 311M. The discrepancy was caught by reading the S-1 directly; press number had propagated unreviewed for nearly a decade.*
+
+### 7.5 `identity.last_valuation_usd`
+
+**Public companies:** market capitalization at close of the **last trading day prior to `data_collection_date`**, calculated as:
+
+```
+last_valuation_usd = (close price on last trading day) × (basic shares outstanding per most recent 10-K or 10-Q)
+```
+
+In USD integers, no rounding. Any mismatch between filing date of the share count and the close date introduces a small error (proportional to share repurchases or issuances in the gap, typically <1%). Document in `metadata.notes` if the gap exceeds 30 days from latest filing.
+
+**Private companies:** post-money valuation declared in the most recent funding round. When undisclosed, set to `null` and document the round date and lead investor in `strategic_signals.funding_rounds_l24m`.
+
+**Both interpretations** serve the same functional role ("most recent market signal of the company's value"). The interpretation used for each record is implicit from `is_public`; document explicitly in `metadata.notes` when the interpretation is non-obvious (e.g., recently de-listed, undisclosed late-stage round).
+
+*Example: MongoDB at close 2026-05-01 = USD 263.46 × 80,369,527 shares = `21174155583`. Volatile asset (52w range USD 169–445); snapshot not to be interpreted as stable enterprise value.*
+
+### 7.6 Cross-source rule for public companies (refinement of section 3.2)
+
+The general rule "≥2 independent sources" applies, but for public companies with active SEC filings:
+
+- A **press article that itself cites the SEC filing** does NOT count as an independent source. That is ratification, not triangulation.
+- An **independent source** for a public company means: a different SEC filing, a different filing type (10-K vs S-1 vs 10-Q), an independent market data provider (Yahoo Finance, NASDAQ direct, Bloomberg), or an independent legal/financial database.
+- Wikipedia, Crunchbase, and TechCrunch are **orientation tools only** for public companies, not primary or secondary sources.
+
+---
+
+## 8. Schema TODOs (post-v1)
+
+Schema improvements deferred to future versions:
+
+- **Add `"market-data"` to `source.type` enum.** Financial data providers (Yahoo Finance, Bloomberg, NASDAQ, MarketWatch) are currently classified as `"other"`, losing useful provenance signal. First public company entry (MongoDB) flagged this gap. Targeted for schema v1.1.
+- **Add `"share_class_structure"` field** under `identity` for companies with dual-class stock (Founders Class B vs public Class A). Currently captured only narratively in `metadata.notes`. Useful for governance analysis of the Atlas. Targeted for v1.2 or v2.0.

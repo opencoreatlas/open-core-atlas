@@ -3,6 +3,71 @@
   "id": "mongodb",
   "name": "MongoDB",
   "category": "databases",
-  "status": "pending",
-  "data_collection_date": null
+  "status": "in-progress",
+  "data_collection_date": "2026-05-04",
+  "identity": {
+    "founded_year": 2007,
+    "hq_country": "US",
+    "hq_city": "New York",
+    "funding_stage": "ipo",
+    "total_raised_usd": 347207000,
+    "last_valuation_usd": 21174155583,
+    "is_public": true,
+    "ticker": "MDB",
+    "sources": [
+      {
+        "field": "founded_year",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "10-K FY2026, Part I Item 1 'Business' / Corporate Information: 'We were incorporated in Delaware in November 2007 under the name 10gen, Inc.' Same primary source also supports hq_country=US, hq_city='New York' (principal executive offices), is_public=true, ticker=MDB (cover page Section 12(b))."
+      },
+      {
+        "field": "founded_year",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001441816",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "EDGAR company profile (independent of 10-K content): header lists 'formerly: 10GEN INC (filings through 2013-10-17)' under same CIK 0001441816, confirming continuous legal entity since 2007. Registered Business Address '1633 BROADWAY 38TH FLOOR NEW YORK NY 10019' cross-confirms hq_country=US and hq_city='New York'."
+      },
+      {
+        "field": "is_public",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "10-K FY2026 cover page, 'Securities registered pursuant to Section 12(b) of the Act' table: 'Class A Common Stock | MDB | The Nasdaq Stock Market LLC' — confirms public listing and ticker simultaneously."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000104746917006396/a2233556zs-1a.htm",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "S-1/A filed 2017-10-17 (final pre-IPO amendment, accession 0001047469-17-006396), 'Redeemable convertible preferred stock' table: aggregate liquidation preference of $347,207 thousand across Series A through F. Used as proxy for total capital raised pre-IPO (per Atlas methodology section 7.4). Cross-validated against Balance Sheet Data carrying amount of $346,428 thousand at July 31, 2017."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000144181618000028/",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "FY2018 10-K (filed 2018-03-30, accession 0001441816-18-000028 — first post-IPO annual report) confirms conversion of all preferred stock to common equity at IPO, consistent with pre-IPO capital structure disclosed in S-1/A (~USD 347M aggregate). Confirms structural consistency, not exact replication of figure (per Atlas methodology section 3.2)."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://finance.yahoo.com/quote/MDB/",
+        "type": "other",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Yahoo Finance MDB quote: 'Previous Close 263.46' at 2026-05-01 (last trading day before data_collection_date 2026-05-04). Yahoo Statistics page independently displays 'Market Cap as of 5/1/2026: USD 21.17B', consistent with manual calculation. NOTE: schema v1 lacks a 'market-data' source.type enum; classified as 'other' (see methodology section 8 TODO)."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "10-K FY2026 cover page (filed 2026-03-11): 'As of March 9, 2026, there were 80,369,527 shares of the registrant's common stock outstanding.' Market cap calculated as 80,369,527 shares × USD 263.46 close (2026-05-01) = USD 21,174,155,583."
+      }
+    ]
+  },
+  "metadata": {
+    "verification_status": "unverified",
+    "notes": "Phase 1 (identity) complete as of 2026-05-04; phases 2-7 pending. KEY METHODOLOGY DECISIONS: (1) total_raised_usd reconciled to USD 347,207,000 via S-1/A (2017-10-17) preferred stock table — the widely-cited ~USD 311M figure (Wikipedia, Business Insider 2017-10-20) does NOT reconcile with SEC filings; Atlas uses SEC primary filings as source of truth (methodology section 7.4). (2) last_valuation_usd reflects market capitalization snapshot at close 2026-05-01 (USD 263.46 close x 80,369,527 shares per FY2026 10-K cover dated 2026-03-09 = USD 21,174,155,583). MongoDB stock is materially volatile (52-week range USD 169-445; historical range USD 10B-39B between 2021-2024); point-in-time figure should not be interpreted as stable enterprise value. (3) Source type 'other' used for Yahoo Finance pending schema TODO (section 8) to add 'market-data' enum value."
+  }
 }
