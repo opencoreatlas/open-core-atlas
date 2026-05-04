@@ -66,8 +66,274 @@
       }
     ]
   },
+  "license": {
+    "primary_current": "SSPL-1.0",
+    "primary_first": "AGPL-3.0",
+    "license_history": [
+      {
+        "from_license": "AGPL-3.0",
+        "to_license": "SSPL-1.0",
+        "year": 2018,
+        "month": 10,
+        "rationale_public": "Per MongoDB's official statement (October 16, 2018): the relicense was a response to cloud providers taking the AGPLv3-licensed Community Server and offering it as a hosted commercial service without contributing modifications back. The new SSPL adds a copyleft clause requiring any operator who offers MongoDB as a service to open-source their entire service stack — or obtain a commercial license from MongoDB.",
+        "source_url": "https://github.com/mongodb/mongo/commit/5851c894963cb2d675f2c0628e2dc782e23e65a9"
+      }
+    ],
+    "dual_license": true,
+    "cla_required": true,
+    "sources": [
+      {
+        "field": "primary_current",
+        "url": "https://github.com/mongodb/mongo/blob/master/LICENSE-Community.txt",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Direct LICENSE file in primary core repo mongodb/mongo. Header confirms literal text: 'Server Side Public License' / 'VERSION 1, OCTOBER 16, 2018'. Atlas canonical short form per METHODOLOGY.md section 2.4: SSPL-1.0."
+      },
+      {
+        "field": "primary_current",
+        "url": "https://www.mongodb.com/legal/licensing/server-side-public-license",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB official legal/licensing page with heading 'Server Side Public License (SSPL)' confirms SSPL is the license under which MongoDB Community Server is offered. Page also links to MongoDB's own SSPL FAQ and AGPLv3-to-SSPL comparison."
+      },
+      {
+        "field": "primary_first",
+        "url": "https://github.com/mongodb/mongo/commit/5851c894963cb2d675f2c0628e2dc782e23e65a9",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Git commit 5851c89 (SERVER-37651 'Update license information', authored 2018-10-15 14:32 EDT, committed 2018-10-16 09:06 EDT) explicitly DELETES files GNU-AGPL-3.0.txt (-661 lines), GNU-AGPL-3.0.rtf (-241 lines), distsrc/GNU-AGPL-3.0 (-661 lines), and removes GNU-AGPL-3.0.txt references from RPM .spec files. Diff confirms AGPL-3.0 was the previous license, replaced by SSPL-1.0 at this commit. Same commit serves as primary source for license_history[0]."
+      },
+      {
+        "field": "license_history",
+        "url": "https://techcrunch.com/2018/10/16/mongodb-switches-up-its-open-source-license/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-04",
+        "verification_method": "TechCrunch article by Frederic Lardinois, published 2018-10-16 contemporaneous with announcement. Quotes MongoDB official statement on rationale and CTO Eliot Horowitz quote. Used as cross-confirmation of date (Oct 16, 2018) and source for rationale_public."
+      },
+      {
+        "field": "dual_license",
+        "url": "https://www.mongodb.com/legal/licensing/server-side-public-license/faq",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Official MongoDB SSPL FAQ states: 'Customers and OEM partners using MongoDB under a commercial license will not be affected by this change.' Confirms commercial license is offered as alternative to SSPL for the same MongoDB Community Server software (same source code, two concurrent licenses — meets dual_license definition per METHODOLOGY.md section 7.9)."
+      },
+      {
+        "field": "dual_license",
+        "url": "https://techcrunch.com/2018/10/16/mongodb-switches-up-its-open-source-license/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-04",
+        "verification_method": "TechCrunch (2018-10-16) reproduces MongoDB official statement: '...had to open source their software or obtain a commercial license from MongoDB.' Confirms dual licensing model existed pre-2018 (AGPL + commercial) and persists post-2018 (SSPL + commercial)."
+      },
+      {
+        "field": "cla_required",
+        "url": "https://www.mongodb.com/legal/contributor-agreement",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Official MongoDB Contributor Agreement page intro: 'If you would like to contribute to a MongoDB related project, please complete the following Contributor Agreement.' Out-of-band CLA signing model (signed on company website, not via inline repo bot)."
+      },
+      {
+        "field": "cla_required",
+        "url": "https://www.mongodb.com/legal/licensing/server-side-public-license/faq",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "SSPL FAQ ('How can community members contribute to MongoDB repositories under the new license?'): 'There will be no change for users to contribute to MongoDB repositories under the new license. The process to contribute is documented here.' Cross-confirms CLA requirement by directing contributors to the Contributor Agreement page."
+      }
+    ]
+  },
+  "commercial_model": {
+    "type": "hybrid",
+    "primary_revenue_stream": "cloud",
+    "sources": [
+      {
+        "field": "type",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "10-K FY2026 'Subscription product categories and services' revenue disaggregation: Atlas-related = USD 1,807,866 thousand (73.4% of total), Other subscription (predominantly Enterprise Advanced commercial license) = USD 578,111 thousand (23.5% of total), Services = USD 77,820 thousand (3.2% of total). Total FY2026 revenue = USD 2,463,797 thousand. Three material revenue streams from parallel commercial offerings (cloud DBaaS + enterprise license + services) meets METHODOLOGY.md section 2.1 hybrid criterion: 'OSS + hosted + enterprise tiers all generate meaningful revenue, with multiple parallel commercial offerings'."
+      },
+      {
+        "field": "primary_revenue_stream",
+        "url": "https://www.sec.gov/Archives/edgar/data/1441816/000162828026016799/mdb-20260131.htm",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Atlas (multi-cloud managed DBaaS) is the largest revenue stream at USD 1,807,866 thousand of USD 2,463,797 thousand total FY2026 revenue = 73.4%. 'cloud' enum applied per schema (commercial_model.primary_revenue_stream)."
+      },
+      {
+        "field": "type",
+        "url": "https://investors.mongodb.com/",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Investor Relations portal links to FY2026 earnings press release (filed via 8-K on or near 2026-03-11) which independently reproduces the Atlas-vs-Other-subscription-vs-Services revenue breakdown consistent with the 10-K. Confirms structural three-stream revenue mix (per METHODOLOGY.md section 7.6 cross-source rule for public companies)."
+      }
+    ]
+  },
+  "pricing": {
+    "free_tier_exists": true,
+    "free_tier_notes": "Atlas M0 cluster — free forever, intended for learning and exploring MongoDB in a cloud environment. No payment information required.",
+    "self_hosted_free_indefinite": true,
+    "self_hosted_restrictions": "MongoDB Community Server is free of charge under SSPL-1.0; SSPL Section 13 requires that anyone offering MongoDB-as-a-service to third parties either open-source their entire service stack or obtain a commercial license from MongoDB. Internal/subsidiary use is exempt per MongoDB SSPL FAQ.",
+    "cloud_entry_price_usd_month": 58.40,
+    "pricing_model": "hybrid",
+    "enterprise_min_declared_usd": null,
+    "self_serve_ceiling_usd": null,
+    "currency": "USD",
+    "pricing_page_url": "https://www.mongodb.com/pricing",
+    "wayback_snapshots": [],
+    "sources": [
+      {
+        "field": "free_tier_exists",
+        "url": "https://www.mongodb.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Atlas pricing page lists 'Free' tier with literal text 'Free forever' and description 'For learning and exploring MongoDB in a cloud environment.' Cluster tier M0."
+      },
+      {
+        "field": "self_hosted_free_indefinite",
+        "url": "https://github.com/mongodb/mongo/blob/master/LICENSE-Community.txt",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Community Server distributed under SSPL-1.0 (no purchase price). Self-hosted use is unrestricted by cost; only restriction is SSPL Section 13 (service-stack open-source requirement for those offering MongoDB-as-a-service to third parties). Internal/subsidiary use exempt per MongoDB SSPL FAQ."
+      },
+      {
+        "field": "cloud_entry_price_usd_month",
+        "url": "https://www.mongodb.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Atlas pricing page Cluster Tier table: M10 Dedicated = USD 0.08/hr base price. Converted to monthly via × 730 hours/month convention = USD 58.40/month for M10 compute alone. Atlas also offers variable Flex tier (capped at USD 30/mo) and Free M0 tier; M10 chosen as lowest FIXED-price paid tier per Atlas methodology (TODO: formalize in METHODOLOGY 7.x). Note: USD 58.40 reflects compute only; storage, backup, network egress, and add-ons (Search, Vector Search, Stream Processing) are billed separately and would increase real-world cost."
+      },
+      {
+        "field": "pricing_model",
+        "url": "https://www.mongodb.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Atlas pricing combines: (1) capacity-based cluster tiers (M10-M700 priced per cluster size), (2) usage-based storage (per GB-month), (3) usage-based backup (per GB-month + restore fees), (4) usage-based network egress (per GB), (5) add-on services (Search, Vector Search, Stream Processing) priced separately. Multi-dimensional canonical pricing structure → 'hybrid' enum per METHODOLOGY.md section 7.11. Supersedes Session 1 pre-decision 'capacity' which understated the multi-dimension model."
+      }
+    ]
+  },
+  "feature_gating": {
+    "sso_saml": "commercial",
+    "rbac_fine_grained": "commercial",
+    "audit_logs": "commercial",
+    "sla_support_tier": "commercial",
+    "multi_region_ha": "commercial",
+    "white_label": "na",
+    "advanced_analytics": "partial",
+    "api_rate_limits": "na",
+    "notes": "MongoDB Community Server (SSPL) lacks enterprise-grade identity (SSO/SAML, LDAP), auditing, SLA-backed support, and true multi-region HA; these are only available in Atlas paid tiers and/or Enterprise Advanced. Aggregation framework is available in OSS, but advanced analytics products (Charts, BI Connector, Search, Vector Search) are commercial, hence partial.",
+    "sources": [
+      {
+        "field": "sso_saml",
+        "url": "https://www.mongodb.com/docs/manual/core/security-ldap/",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Manual literal: 'MongoDB Enterprise admite el proxy de solicitudes de autenticación a un servicio de Protocolo ligero de acceso a directorios (LDAP).' Confirms enterprise authentication providers (LDAP, Kerberos, SAML, OIDC) are Enterprise-only; Community Server supports only SCRAM-SHA-1/SCRAM-SHA-256 password authentication. SSO/SAML capability is paid-tier only."
+      },
+      {
+        "field": "rbac_fine_grained",
+        "url": "https://www.mongodb.com/docs/manual/core/security-ldap/",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Community Server has only built-in roles (read, readWrite, dbAdmin, etc.) — basic RBAC, NOT fine-grained. Fine-grained custom roles, granular collection-level permissions, and LDAP-integrated role mapping are documented as Enterprise/Atlas-only features. The field 'fine_grained' specifically measures fine-grained RBAC capability, not RBAC presence — Community lacks fine-grained capability. Hence commercial."
+      },
+      {
+        "field": "audit_logs",
+        "url": "https://www.mongodb.com/docs/manual/core/auditing/",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Manual literal text: 'MongoDB Atlas admite la auditoría para clústeres M10 y más grandes' + 'MongoDB Enterprise incluye una capacidad de auditoría para las instancias de mongod y mongos.' Auditing capability NOT in Community Server — exclusively Atlas paid tiers (M10+) and Enterprise Advanced."
+      },
+      {
+        "field": "sla_support_tier",
+        "url": "https://www.mongodb.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Atlas Free/Flex tiers: no SLA documented. Atlas Dedicated (M10+) include uptime SLA and Atlas Enterprise tier adds enterprise support. Enterprise Advanced includes 24/7 commercial support with contractual SLA. Community Server: community forum support only, no SLA. Confirms SLA + support tier is paid-only feature."
+      },
+      {
+        "field": "multi_region_ha",
+        "url": "https://www.mongodb.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Atlas Dedicated tiers offer multi-region clusters (Global Clusters / Multi-Region Replica Sets) with automated cross-region failover, billed as a premium feature. Community Server replica sets enable HA within a single region/network only — they are NOT multi-region HA. The field 'multi_region_ha' specifically measures cross-region geographic distribution with automated failover; Community Server lacks this entirely. Hence commercial."
+      },
+      {
+        "field": "white_label",
+        "url": "https://www.mongodb.com/products/self-managed/enterprise-advanced",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB product pages and pricing do NOT mention white-labeling, OEM branding removal, or rebrandable deployment. Database engine product type does not have white-label as a feature concept in any tier. Marked na (not applicable to product type)."
+      },
+      {
+        "field": "advanced_analytics",
+        "url": "https://www.mongodb.com/docs/manual/aggregation/",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Aggregation Framework (data analytics via pipeline operators: $group, $match, $project, $lookup, etc.) is fully available in Community Server — basic OSS analytics capability. Atlas Charts (visual BI dashboards), MongoDB Connector for BI (SQL/Tableau/PowerBI integration), Atlas Search analytics, Atlas Vector Search are commercial features only. Aggregation pipelines = OSS; BI/visualization/search/vector analytics products = commercial. Hence partial."
+      },
+      {
+        "field": "api_rate_limits",
+        "url": "https://www.mongodb.com/docs/manual/",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB Community Server and Enterprise Advanced are database engines (mongod/mongos processes), not SaaS HTTP APIs. No 'API rate limits' as a user-facing feature applies to the data plane. Atlas Admin API (cluster management endpoints) has rate limits but these are operational/management, not the data API rate limits the field intends. Marked na."
+      }
+    ]
+  },
+  "github": {
+    "primary_repo_url": "https://github.com/mongodb/mongo",
+    "snapshot_date": "2026-05-04",
+    "stars": 28287,
+    "contributors_total": 902,
+    "contributors_l12m": 71,
+    "commits_l12m": 10768,
+    "releases_l12m": 97,
+    "latest_release_date": "2026-04-30",
+    "latest_release_version": "r8.0.21"
+  },
+  "strategic_signals": {
+    "license_changes_l24m": [],
+    "funding_rounds_l24m": [],
+    "notable_customers": [
+      "Novo Nordisk",
+      "Toyota Connected",
+      "Bendigo and Adelaide Bank",
+      "Wells Fargo",
+      "L'Oréal"
+    ],
+    "pricing_changes_l24m": "No pricing-change analysis completed for L24M; Wayback Machine snapshots were not captured during data collection due to browser/extension permission constraints.",
+    "sources": [
+      {
+        "field": "license_changes_l24m",
+        "url": "https://github.com/mongodb/mongo/commit/5851c894963cb2d675f2c0628e2dc782e23e65a9",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-04",
+        "verification_method": "L24M cutoff = 2024-05-04. The only documented MongoDB license change was AGPL-3.0 to SSPL-1.0 in October 2018 (commit 5851c89), which predates the cutoff by ~5.5 years. No subsequent license changes documented in commit history, repo LICENSE files, or company legal pages. Field correctly empty."
+      },
+      {
+        "field": "funding_rounds_l24m",
+        "url": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001441816",
+        "type": "sec-filing",
+        "accessed_date": "2026-05-04",
+        "verification_method": "MongoDB has been public since 2017 IPO (NASDAQ: MDB). Per Atlas methodology section 7.16, funding_rounds_l24m captures only private VC/PE rounds, not public-company capital events (stock buybacks, debt issuance, follow-on offerings, M&A). Field correctly empty for public companies. Notable L24M strategic events (Voyage AI acquisition Feb 2025, USD 200M stock buyback Feb 2025, CEO transition Nov 2025) documented in metadata.notes but excluded from this field for cross-company comparability with private companies."
+      },
+      {
+        "field": "notable_customers",
+        "url": "https://www.mongodb.com/solutions/customer-case-studies",
+        "type": "company-website",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Customer logos and case study titles extracted from MongoDB official 'Customer Case Studies' page. Five featured customers selected for diversity across industries: Novo Nordisk (pharmaceuticals), Toyota Connected (automotive/IoT), Bendigo and Adelaide Bank (banking AU), Wells Fargo (banking US), L'Oréal (consumer goods). All names sourced exclusively from MongoDB's own page (no Wikipedia, no external articles)."
+      },
+      {
+        "field": "pricing_changes_l24m",
+        "url": "https://www.mongodb.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-04",
+        "verification_method": "Pricing page snapshot captured during Phase 4 (current pricing). Wayback Machine snapshot save attempt blocked by Chrome extension domain permission constraint; no historical snapshots available for L24M diff. Field documents this constraint honestly rather than inferring from press or company blog (which would be weaker evidence)."
+      }
+    ]
+  },
   "metadata": {
     "verification_status": "unverified",
-    "notes": "Phase 1 (identity) complete as of 2026-05-04; phases 2-7 pending. KEY METHODOLOGY DECISIONS: (1) total_raised_usd reconciled to USD 347,207,000 via S-1/A (2017-10-17) preferred stock table — the widely-cited ~USD 311M figure (Wikipedia, Business Insider 2017-10-20) does NOT reconcile with SEC filings; Atlas uses SEC primary filings as source of truth (methodology section 7.4). (2) last_valuation_usd reflects market capitalization snapshot at close 2026-05-01 (USD 263.46 close x 80,369,527 shares per FY2026 10-K cover dated 2026-03-09 = USD 21,174,155,583). MongoDB stock is materially volatile (52-week range USD 169-445; historical range USD 10B-39B between 2021-2024); point-in-time figure should not be interpreted as stable enterprise value. (3) Source type 'other' used for Yahoo Finance pending schema TODO (section 8) to add 'market-data' enum value."
+    "notes": "All phases (1-7) complete as of 2026-05-04. Phase 8 (verification + 24h cool-off) pending — flip status to 'verified' no earlier than 2026-05-05. KEY METHODOLOGY DECISIONS: (1) total_raised_usd reconciled to USD 347,207,000 via S-1/A (2017-10-17) preferred stock table — the widely-cited ~USD 311M figure (Wikipedia, Business Insider 2017-10-20) does NOT reconcile with SEC filings; Atlas uses SEC primary filings as source of truth (methodology section 7.4). (2) last_valuation_usd reflects market capitalization snapshot at close 2026-05-01 (USD 263.46 close x 80,369,527 shares per FY2026 10-K cover dated 2026-03-09 = USD 21,174,155,583). MongoDB stock is materially volatile (52-week range USD 169-445; historical range USD 10B-39B between 2021-2024); point-in-time figure should not be interpreted as stable enterprise value. (3) Source type 'other' used for Yahoo Finance pending schema TODO (section 8) to add 'market-data' enum value. (4) primary_first reconstructed from git history of mongodb/mongo (commit 5851c89, Oct 16 2018) which explicitly deletes GNU-AGPL-3.0.txt files when introducing SSPL — stronger primary source than Wayback (which was inaccessible due to extension permissions). (5) cla_required confirmed via existence of MongoDB Legal Contributor Agreement page; full legal terms of the agreement (specific rights granted, license to MongoDB, etc.) were not extracted to dataset because page renders via form/iframe not deeply inspected — sufficient for cla_required: true confirmation but inadequate if granular legal analysis needed. (6) commercial_model.type=hybrid confirmed via 10-K FY2026 revenue disaggregation showing three material streams: Atlas USD 1.808B (73.4%), Other subscription USD 578M (23.5%), Services USD 78M (3.2%). Initial hypothesis was hosted-first based on Atlas dominance, revised to hybrid because USD 578M Enterprise Advanced revenue is materially significant per METHODOLOGY 2.1. (7) cloud_entry_price_usd_month=USD 58.40 reflects MongoDB Atlas M10 Dedicated cluster compute alone (USD 0.08/hr × 730 hrs/month convention). Atlas total bill is multi-dimensional (storage, backup, network egress are usage-charged on top), so USD 58.40 is the entry capacity price not total cost; real-world M10 deployment typically exceeds this. Atlas also offers a Flex tier (variable, capped at USD 30/mo) and Free tier (M0 cluster, USD 0/mo) below M10. (8) pricing_model='hybrid' chosen over Session 1 pre-decision 'capacity' because Atlas charges multiple obligatory dimensions: capacity (cluster tier), usage (storage GB, network egress GB, backup), plus add-ons (Search, Vector Search, Stream Processing). METHODOLOGY 7.11 added: 'hybrid' applies when canonical pricing combines ≥2 mandatory or recurring dimensions, not just marginal add-ons. (9) wayback_snapshots empty: Wayback Machine save attempt blocked by Chrome extension domain permission constraint; not blocking for Phase 4 closure. Manual snapshot pending. (10) feature_gating: 5 of 8 features classified as commercial (sso_saml, rbac_fine_grained, audit_logs, sla_support_tier, multi_region_ha) — all confirmed via MongoDB docs (security-ldap, auditing, encryption-at-rest pages). 1 partial (advanced_analytics: aggregation framework OSS, BI/Charts/Search/Vector commercial). 2 na (white_label not a DB-product concept; api_rate_limits not applicable to DB engine — Atlas Admin API rate limits are operational, not user-facing data API). Initial draft proposed partial for rbac_fine_grained and multi_region_ha; revised to commercial after audit because the field names specifically measure fine-grained capability and cross-region HA respectively, neither of which Community Server provides. (11) github velocity: stars=28287 (triple-confirmed via web sidebar + gh repo view + atom feed). contributors_total=902 (web sidebar; the gh api stats/contributors endpoint caps at 100, NOT the real total). contributors_l12m=71 = lower bound from top-100 stats/contributors active in last 52 weeks (Pareto: typical OSS projects have long tail of one-off contributors, so 71 likely captures >95% of true L12M-active contributors). commits_l12m=10768 (sum of weekly stats/commit_activity, all 52 weeks active — sustained development). releases_l12m=97 (DETERMINISTIC: exhaustive scan of 1,484 total tags across 15 GraphQL pages with annotated-tag handling; cutoff 2025-05-04). MongoDB does NOT use GitHub Releases (page literally says 'There aren't any releases here') — distributes via download.mongodb.com. Tags used as release proxy per METHODOLOGY 7.12. latest_release_date=2026-04-30 (r8.0.21 LTS patch). 97 tags/year ~ 1.86 release events/week — high cadence due to multi-branch maintenance (LTS 7.0.x, LTS 8.0.x, current 8.2.x patches, 8.3.x RCs, 9.0 alpha). (12) Methodology gotcha caught (regla #11 case study): initial GraphQL query for releases_l12m had only '... on Commit { committedDate }' fragment, missing '... on Tag { tagger { date } }' branch — returned false 0 because mongodb/mongo uses ANNOTATED tags not lightweight. Subsequent paginated counts gave 95/91/97 depending on early-break logic; only the exhaustive scan is deterministic because TAG_COMMIT_DATE DESC ordering is non-monotonic when annotated and lightweight tags are mixed. METHODOLOGY 7.13 added with this rule. (13) The bundled scripts/github_stats.sh has known limitations exposed during MongoDB walkthrough: (a) uses 'gh release list' which returns nothing for repos using only Tags; (b) 'top 10 contributors' is by all-time contribution count, not L12M activity; (c) does not compute releases_l12m or contributors_l12m. Future: extend the script with the GraphQL queries developed during MongoDB to handle annotated tags + L12M filter. (14) Phase 7 (strategic_signals): license_changes_l24m=[] (SSPL change in 2018 predates 2024-05-04 cutoff by ~5.5 years; no subsequent changes). funding_rounds_l24m=[] per Atlas methodology 7.16 (public companies excluded; field reserved for private VC/PE rounds for cross-comparability). Notable L24M strategic events for MongoDB documented here for traceability: Voyage AI acquisition (Feb 2025, AI embedding/reranking models for semantic search integration), USD 200M stock buyback announcement (Feb 2025), CEO transition (Nov 3 2025: Chirantan 'CJ' Desai appointed effective Nov 10 2025). notable_customers=5 from official MongoDB customer-case-studies page (Novo Nordisk, Toyota Connected, Bendigo and Adelaide Bank, Wells Fargo, L'Oréal — diverse industries: pharma, automotive, banking AU, banking US, consumer). pricing_changes_l24m: documented as no-data due to Wayback access constraint, not inferred from weaker sources."
   }
 }

@@ -224,6 +224,148 @@ The general rule "≥2 independent sources" applies, but for public companies wi
 - An **independent source** for a public company means: a different SEC filing, a different filing type (10-K vs S-1 vs 10-Q), an independent market data provider (Yahoo Finance, NASDAQ direct, Bloomberg), or an independent legal/financial database.
 - Wikipedia, Crunchbase, and TechCrunch are **orientation tools only** for public companies, not primary or secondary sources.
 
+### 7.7 `license.license_history.rationale_public` source hierarchy
+
+For the `rationale_public` field, the source hierarchy is:
+
+1. **Direct official statement** from the company (blog post, press release, transcript of earnings call, official website FAQ)
+2. **Verbatim quote** of the company reproduced in reputable tech press contemporaneous with the announcement (TechCrunch, Bloomberg, The Information, etc.)
+3. **Founder/executive interviews** in podcasts where the rationale is discussed directly
+
+Avoid editorializing: if the journalist interprets or characterizes the company's position beyond direct quotation, cite only the literal portion or seek another source. The goal is to capture **what the company said publicly**, not what observers thought about it.
+
+### 7.8 Use git history for license-change verification when possible
+
+When the primary repo is public on GitHub/GitLab and has continuous git history: the **commit that introduces the license change is the strongest primary source** for `license_history`. Stronger than Wayback Machine snapshots because:
+
+- Git commit hashes are immutable and auditable
+- The diff visually shows the previous license file being deleted/replaced
+- The commit ties to the company's internal ticketing (Jira, Linear) when referenced
+- No dependency on external archive infrastructure
+
+Wayback Machine is the fallback when (a) the repo doesn't have public git history continuity, (b) the relevant commit was rewritten/squashed, or (c) the repo is no longer public.
+
+Canonical URL form for git-history-based source: `github.com/{owner}/{repo}/commit/{full-sha}`.
+
+*Example: MongoDB AGPL→SSPL transition documented via commit `5851c89` of `mongodb/mongo`, which explicitly deletes `GNU-AGPL-3.0.txt` (-661 lines) and related files at the same time SSPL is introduced.*
+
+### 7.9 `license.dual_license` — strict definition
+
+`dual_license: true` means: **the same source code is offered under two concurrent licenses**, with the user choosing which one applies (the classic "MySQL-style" or "Qt-style" dual licensing model).
+
+This is **distinct from**:
+
+- **Product tiering** — Community vs Enterprise as separate products with separate codebases. (Not dual licensing; the codebases differ.)
+- **Heterogeneous repos** — server core under license A, drivers/SDKs under license B. (Captured in `metadata.notes`, not via `dual_license`.)
+
+To confirm `dual_license: true`, look for an explicit statement from the company offering a "commercial license" or "alternative license" for the same OSS code base — typically as escape from copyleft obligations (GPL/AGPL/SSPL).
+
+*Example: MongoDB Community Server source code is available under SSPL-1.0 OR a commercial license (per company FAQ stating "Customers and OEM partners using MongoDB under a commercial license will not be affected by this change"). Same code, two concurrent licenses → `dual_license: true`.*
+
+### 7.10 `license.cla_required` — confirmation hierarchy
+
+Verification sources in priority order:
+
+1. **Explicit "CLA required" wording** in `CONTRIBUTING.md` / `CONTRIBUTING.rst` / `CLA.md` in the primary repo
+2. **Visible CLA bot integration** on PRs (CLA Assistant, EasyCLA, custom GitHub Action) that blocks merge until signed
+3. **Dedicated `/legal/contributor-agreement` page** on company website with formal signing process (out-of-band CLA model)
+4. **DCO (Developer Certificate of Origin) signoff requirement only** — lighter mechanism than CLA proper. If only this is present, set `cla_required: true` but document the mechanism in `metadata.notes` because DCO is legally less weighty than a true CLA.
+
+*Example: MongoDB confirmed via (3): out-of-band CLA signing on company website (`mongodb.com/legal/contributor-agreement`), not via inline repo bot. CONTRIBUTING.rst is minimalist and does NOT mention CLA explicitly — the CLA requirement lives on the legal page.*
+
+### 7.11 `pricing.pricing_model` = `"hybrid"` — when to apply
+
+The schema enum for `pricing.pricing_model` is `["per-seat", "usage", "capacity", "hybrid", "custom-only"]`. The Atlas convention for choosing `"hybrid"` is:
+
+**`"hybrid"`** applies when the canonical published pricing combines **two or more mandatory or recurring dimensions** — not just marginal opt-in add-ons. Examples of dimensions that count:
+
+- Capacity (instance size, seat count if mandatory) +
+- Usage (per GB stored, per request, per egress GB) +
+- Time-based (subscription minimum) +
+- Resource-based (compute hours, transactions)
+
+Pure `"capacity"` applies when pricing is dominantly a single dimension of "size of thing" (e.g., a fixed monthly fee per server tier without usage variability).
+
+Pure `"usage"` applies when pricing is dominantly metered consumption with no fixed-tier structure (e.g., AWS Lambda per request).
+
+**Test**: read the pricing page. If a typical customer's monthly invoice has line items in ≥2 different dimensions (e.g., "M10 cluster" line + "storage GB" line + "egress" line) and that's the canonical bill structure (not extra opt-ins), → `"hybrid"`.
+
+*Example: MongoDB Atlas → cluster compute (capacity) + storage per GB (usage) + backup per GB-month (usage) + network egress per GB (usage) + add-ons (capacity/usage). Multi-dimensional canonical structure → `"hybrid"`.*
+
+*Counter-example: a SaaS at "$X per user per month" with no usage component → `"per-seat"`, not hybrid (even if some optional add-ons exist).*
+
+### 7.12 `github.releases_l12m` — Tags as proxy when GitHub Releases is empty
+
+When a repo's GitHub Releases section is empty (`gh release list` returns "no releases found"), but the project IS releasing software — distributed via custom infrastructure, package registries, or downloadable binaries — use **Git Tags as proxy** for `releases_l12m`, `latest_release_date`, and `latest_release_version`.
+
+Rationale: the schema field measures "release artifacts," not "GitHub Releases API entries." A `releases_l12m: 0` for a project that visibly cuts ~100 tagged versions per year would misrepresent activity in the dataset.
+
+When using Tags as proxy:
+- Document the decision in `metadata.notes`
+- Use the tag's creation date for `latest_release_date` (NOT the underlying commit's `committedDate` — see 7.13)
+- Count tags within last 12 months for `releases_l12m`, scanned exhaustively (see 7.14)
+
+*Example: `mongodb/mongo` has zero GitHub Releases (MongoDB distributes via `download.mongodb.com`) but 1,484 tags total and 97 in L12M — captured via Tags-as-proxy with appropriate notes.*
+
+### 7.13 GitHub GraphQL — annotated vs lightweight tags (regla #11 case)
+
+Git supports two tag types:
+- **Lightweight tags**: a named pointer to a commit. In GitHub's GraphQL API, `target` is of type `Commit`.
+- **Annotated tags**: a tag *object* (with its own author, date, message) that points to a commit. In GraphQL, `target` is of type `Tag`, and the underlying commit is at `target.target` (a `Commit`).
+
+When querying `refs(refPrefix:"refs/tags/")`, **always include both fragments**:
+
+```graphql
+target {
+  __typename
+  ... on Commit { committedDate }
+  ... on Tag {
+    tagger { date }
+    target { ... on Commit { committedDate } }
+  }
+}
+```
+
+Failing to include `... on Tag {...}` returns `null` for the date field on every annotated tag, producing a **plausible-looking but completely false count** (typically 0). MongoDB uses annotated tags for releases — discovered when the buggy first query returned 0 tags in L12M, contradicting the visible cadence in the GitHub UI.
+
+**Lesson**: when querying GraphQL polymorphic unions (`Tag | Commit | Blob | ...`), always include `__typename` and one fragment per reachable type, even if you assume the data is uniform. The schema doesn't enforce uniformity.
+
+### 7.14 GitHub tag pagination — sort wobble: scan exhaustively, do not early-break
+
+GitHub's `orderBy:{field:TAG_COMMIT_DATE, direction:DESC}` is **not strictly monotonic** when annotated and lightweight tags are mixed in the result, because the field reads different underlying dates per tag type (commit `committedDate` for lightweight; tag's pointed-to commit's `committedDate` for annotated).
+
+Empirically observed during MongoDB walkthrough: page 1 ended at 2025-05-13, but page 2 contained two tags dated **after** 2025-05-13 before crossing below the L12M cutoff.
+
+**Rule**: count `releases_l12m` via **exhaustive pagination** to the end of the tag list (or until 5+ consecutive pages show all tags below cutoff). Do NOT early-break at the first tag below cutoff — you will miss tags that are out of order.
+
+*Example for MongoDB: progression was 0 → 95 → 91 → 97. Only the exhaustive scan (15 pages, 1,484 total tags) gave the deterministic 97.*
+
+### 7.15 `github.contributors_total` and `contributors_l12m` — API caps at 100
+
+The endpoint `gh api repos/{owner}/{repo}/stats/contributors` returns a **maximum of 100 contributors**, sorted by total contribution count. For repos with >100 lifetime contributors, this number is capped — NOT the real total.
+
+For `contributors_total`: use the **web sidebar count** on the repo home page (`github.com/{owner}/{repo}`, sidebar "Contributors NNN"), which reflects the true total. Cross-check: if `gh api` returns exactly 100, that is the cap, not a real measurement.
+
+For `contributors_l12m`: the same top-100 endpoint returns weekly activity; counting top-100 contributors active in L12M is a **lower bound**. Typical OSS projects follow Pareto distribution (long tail of one-off contributors), so the lower bound usually captures >95% of L12M-active contributors, but it is not exact. Document this in `metadata.notes`.
+
+*Example for MongoDB: web sidebar = 902 contributors; gh api returned exactly 100 (cap). `contributors_total: 902`, `contributors_l12m: 71` (lower bound from top-100 active in L12M).*
+
+### 7.16 `strategic_signals.funding_rounds_l24m` — strict definition
+
+`funding_rounds_l24m` captures **private funding rounds only** (VC seed/A/B/C/D/E, growth equity, private debt convertible, etc.). For public companies, the following events are **excluded** from this field to preserve cross-company comparability:
+
+- Stock buybacks
+- Debt issuance
+- Public follow-on offerings
+- Secondary offerings
+- M&A consideration / acquisitions
+
+For public companies with notable L24M capital events, document them in `metadata.notes` (or in a future `strategic_events` field if the schema is extended). The `funding_rounds_l24m` field for public companies should typically be empty (`[]`).
+
+Rationale: cross-company comparability — if MongoDB's array contained "buyback 2025-02 USD 200M" and CockroachDB's contained "Series F 2024-XX", aggregating funding-stage analysis across the dataset would mix incomparable concepts. The field should mean the same thing across all 30 records.
+
+*Example: MongoDB has been public since 2017 IPO. L24M strategic events (Voyage AI acquisition Feb 2025, USD 200M buyback Feb 2025, CEO transition Nov 2025) are documented in `metadata.notes` but `funding_rounds_l24m: []`.*
+
 ---
 
 ## 8. Schema TODOs (post-v1)
