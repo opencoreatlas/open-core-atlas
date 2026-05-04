@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "hugging-face",
+  "name": "Hugging Face",
+  "category": "ai-infra",
+  "status": "pending",
+  "data_collection_date": null
+}

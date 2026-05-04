@@ -1,0 +1,149 @@
+# Controlled vocabularies for Open Core Atlas — Schema v1.0
+#
+# These match enums in schema/company.schema.json.
+# Any addition here MUST be reflected in schema and METHODOLOGY.md.
+# Removals require schema major version bump.
+
+category:
+  databases:
+    description: "Persistent data stores: relational, document, graph, time-series, vector"
+  observability:
+    description: "Logs, metrics, traces, error tracking, application monitoring"
+  devtools:
+    description: "Tools for developers: scheduling, automation, productivity, scaffolding"
+  ai-infra:
+    description: "Model hosting, agent frameworks, ML libraries, embeddings, vector search"
+  security:
+    description: "Authentication, authorization, scanning, runtime security, policy engines"
+  data-pipeline:
+    description: "ETL, ELT, streaming ingestion, transformation"
+  analytics-bi:
+    description: "Dashboards, exploration, semantic layers, embedded analytics"
+  workflow-orchestration:
+    description: "Job scheduling, durable execution, BPMN, workflow engines"
+  content-cms:
+    description: "Headless CMS, blogging platforms, content management"
+  niche-emerging:
+    description: "Notable products not fitting the above 9 cleanly; flagged for review"
+
+funding_stage:
+  bootstrapped:
+    description: "Self-funded, no VC. Includes profitable indie operators."
+  pre-seed:
+    description: "Pre-revenue, friends/family/angels."
+  seed:
+    description: "Seed round, typically <USD 5M."
+  series-a:
+    description: "First major institutional round."
+  series-b:
+    description: "Series B."
+  series-c:
+    description: "Series C."
+  series-d:
+    description: "Series D."
+  series-e-plus:
+    description: "Series E or beyond, pre-IPO."
+  growth-late:
+    description: "Late-stage growth without specific round letter (e.g., post-IPO private)."
+  ipo:
+    description: "Public on a major exchange."
+  acquired:
+    description: "Acquired by another company; OSS may continue or be sunset."
+  foundation-nonprofit:
+    description: "501(c)(3) or equivalent foundation, not VC-backed."
+
+commercial_model_type:
+  pure-open-core:
+    description: |
+      OSS feature-complete for many use cases. Commercial features paid (typically:
+      SSO, RBAC, advanced analytics, audit logs). Self-hosted free version is genuinely
+      usable in production for non-trivial workloads.
+    examples: [strapi, mattermost, camunda]
+  hosted-first:
+    description: |
+      OSS exists and is genuinely usable, but the company's primary revenue comes from
+      hosted/cloud version. The OSS is real (not a marketing funnel) — but the business
+      is built around hosting.
+    examples: [supabase, cal-com, plausible]
+  hybrid:
+    description: |
+      OSS + hosted + enterprise tiers all generate meaningful revenue, with multiple
+      parallel commercial offerings.
+    examples: [grafana, mongodb, sentry]
+  services-support:
+    description: |
+      OSS is feature-complete; revenue comes from services, support, training,
+      certifications. No paid features.
+    examples: []
+  saas-with-oss-marketing:
+    description: |
+      The OSS exists but is intentionally limited or works mostly as a lead magnet.
+      The commercial product is the real product. Distinguished from hosted-first by
+      whether OSS is a real production-grade option for non-trivial workloads.
+    examples: []
+
+# Disambiguation rule for hosted-first vs saas-with-oss-marketing:
+# If a typical user could realistically run the OSS in production for >50% of their
+# use cases without commercial features, it's `hosted-first`. If the OSS would
+# frustrate a real user trying to use it for production, it's `saas-with-oss-marketing`.
+
+primary_revenue_stream:
+  cloud: "Hosted cloud version is the primary paid offering"
+  enterprise-license: "Self-managed enterprise license is primary"
+  services: "Professional services (implementation, custom dev)"
+  support: "Support tiers (response time, dedicated reps)"
+  marketplace: "Marketplace/ecosystem fees"
+  other: "Other"
+
+pricing_model:
+  per-seat: "Charged per user/seat/month"
+  usage: "Charged by usage units (events, requests, tokens, GB)"
+  capacity: "Charged by capacity provisioned (cluster size, storage tier)"
+  hybrid: "Mix of two or more models above"
+  custom-only: "No public self-serve pricing; sales-led only"
+
+feature_gating_value:
+  oss: "Available in OSS version, no commercial gate"
+  commercial: "Only in paid commercial tier"
+  partial: "Basic version in OSS, advanced version in commercial"
+  na: "Feature not applicable to this product type"
+
+verification_status:
+  unverified: "Data exists but has not been cross-checked or reviewed"
+  verified: "Data has been cross-checked and reviewed; ready for publication"
+  needs-review: "Data has issues flagged that require resolution"
+
+source_type:
+  - company-website
+  - company-pricing-page
+  - github-license-file
+  - github-repo-stats
+  - github-releases
+  - wayback-machine
+  - crunchbase
+  - pitchbook
+  - sec-filing
+  - press-release
+  - tech-press
+  - linkedin
+  - twitter
+  - podcast-interview
+  - earnings-call-transcript
+  - community-post
+  - other
+
+# License vocabulary — SPDX identifiers preferred
+license_examples:
+  - Apache-2.0       # SPDX
+  - MIT              # SPDX
+  - BSD-3-Clause     # SPDX
+  - GPL-3.0          # SPDX
+  - AGPL-3.0         # SPDX
+  - SSPL-1.0         # MongoDB
+  - BSL-1.1          # Business Source License (HashiCorp, CockroachDB pre-2024, Sentry pre-2023)
+  - Elastic-2.0      # ELv2 (Airbyte post-2022)
+  - FSL-1.1-Apache   # Functional Source License (Sentry post-2023)
+  - PSAL-1.0         # PostHog Source Available License
+  - SUL              # n8n Sustainable Use License (non-standard, no version)
+# When a company offers two licenses concurrently, use composite "License-A+License-B"
+# and set `dual_license: true`.

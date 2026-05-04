@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "directus",
+  "name": "Directus",
+  "category": "content-cms",
+  "status": "pending",
+  "data_collection_date": null
+}

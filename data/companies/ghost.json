@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "ghost",
+  "name": "Ghost",
+  "category": "content-cms",
+  "status": "pending",
+  "data_collection_date": null
+}

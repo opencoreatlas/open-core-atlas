@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "opa",
+  "name": "Open Policy Agent",
+  "category": "security",
+  "status": "pending",
+  "data_collection_date": null
+}

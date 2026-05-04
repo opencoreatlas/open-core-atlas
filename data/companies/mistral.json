@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "mistral",
+  "name": "Mistral AI",
+  "category": "ai-infra",
+  "status": "pending",
+  "data_collection_date": null
+}

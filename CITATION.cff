@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "The Open Core Atlas"
+message: "If you use this dataset, please cite as below."
+type: dataset
+authors:
+  - name: "Atlas Research"
+    website: "https://opencoreatlas.com"
+version: "0.1.0-preview"
+license: CC-BY-4.0
+url: "https://github.com/atlas-research/open-core-atlas"
+keywords:
+  - open-source
+  - open-core
+  - commercial-open-source
+  - COSS
+  - licensing
+  - pricing
+  - benchmark

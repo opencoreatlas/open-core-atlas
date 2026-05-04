@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "astronomer",
+  "name": "Astronomer (Apache Airflow)",
+  "category": "workflow-orchestration",
+  "status": "pending",
+  "data_collection_date": null
+}

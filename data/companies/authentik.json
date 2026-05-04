@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "authentik",
+  "name": "Authentik",
+  "category": "security",
+  "status": "pending",
+  "data_collection_date": null
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "metabase",
+  "name": "Metabase",
+  "category": "analytics-bi",
+  "status": "pending",
+  "data_collection_date": null
+}

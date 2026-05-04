@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "sentry",
+  "name": "Sentry",
+  "category": "observability",
+  "status": "pending",
+  "data_collection_date": null
+}

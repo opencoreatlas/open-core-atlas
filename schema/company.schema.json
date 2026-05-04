@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://opencoreatlas.com/schemas/company.json",
+  "title": "Open Core Atlas Company Record",
+  "description": "Schema for one company record in the Open Core Atlas dataset.",
+  "type": "object",
+  "required": ["schema_version", "id", "name", "category", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable slug, lowercase letters/digits/hyphens only."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "databases",
+        "observability",
+        "devtools",
+        "ai-infra",
+        "security",
+        "data-pipeline",
+        "analytics-bi",
+        "workflow-orchestration",
+        "content-cms",
+        "niche-emerging"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pending", "in-progress", "verified", "published"]
+    },
+    "data_collection_date": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "string", "format": "date"}
+      ]
+    },
+    "identity": {"$ref": "#/$defs/identity"},
+    "license": {"$ref": "#/$defs/license"},
+    "commercial_model": {"$ref": "#/$defs/commercial_model"},
+    "pricing": {"$ref": "#/$defs/pricing"},
+    "feature_gating": {"$ref": "#/$defs/feature_gating"},
+    "github": {"$ref": "#/$defs/github"},
+    "strategic_signals": {"$ref": "#/$defs/strategic_signals"},
+    "metadata": {"$ref": "#/$defs/metadata"}
+  },
+  "if": {
+    "properties": {"status": {"enum": ["verified", "published"]}}
+  },
+  "then": {
+    "required": [
+      "data_collection_date",
+      "identity",
+      "license",
+      "commercial_model",
+      "pricing",
+      "feature_gating",
+      "github",
+      "metadata"
+    ]
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["url", "accessed_date"],
+      "additionalProperties": false,
+      "properties": {
+        "field": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "type": {
+          "type": "string",
+          "enum": [
+            "company-website",
+            "company-pricing-page",
+            "github-license-file",
+            "github-repo-stats",
+            "github-releases",
+            "wayback-machine",
+            "crunchbase",
+            "pitchbook",
+            "sec-filing",
+            "press-release",
+            "tech-press",
+            "linkedin",
+            "twitter",
+            "podcast-interview",
+            "earnings-call-transcript",
+            "community-post",
+            "other"
+          ]
+        },
+        "accessed_date": {"type": "string", "format": "date"},
+        "verification_method": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    },
+    "identity": {
+      "type": "object",
+      "required": ["founded_year", "hq_country", "funding_stage", "is_public"],
+      "additionalProperties": false,
+      "properties": {
+        "founded_year": {"type": "integer", "minimum": 1980, "maximum": 2030},
+        "hq_country": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 2,
+          "description": "ISO 3166-1 alpha-2 code (e.g., US, DE, FR, GB)"
+        },
+        "hq_city": {"type": ["string", "null"]},
+        "funding_stage": {
+          "type": "string",
+          "enum": [
+            "bootstrapped",
+            "pre-seed",
+            "seed",
+            "series-a",
+            "series-b",
+            "series-c",
+            "series-d",
+            "series-e-plus",
+            "growth-late",
+            "ipo",
+            "acquired",
+            "foundation-nonprofit"
+          ]
+        },
+        "total_raised_usd": {"type": ["integer", "null"], "minimum": 0},
+        "last_valuation_usd": {"type": ["integer", "null"], "minimum": 0},
+        "is_public": {"type": "boolean"},
+        "ticker": {"type": ["string", "null"]},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      }
+    },
+    "license": {
+      "type": "object",
+      "required": ["primary_current", "dual_license", "cla_required"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_current": {"type": "string"},
+        "primary_first": {"type": ["string", "null"]},
+        "license_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["from_license", "to_license", "year"],
+            "additionalProperties": false,
+            "properties": {
+              "from_license": {"type": "string"},
+              "to_license": {"type": "string"},
+              "year": {"type": "integer", "minimum": 1980},
+              "month": {"type": ["integer", "null"], "minimum": 1, "maximum": 12},
+              "rationale_public": {"type": "string"},
+              "source_url": {"type": "string", "format": "uri"}
+            }
+          }
+        },
+        "dual_license": {"type": "boolean"},
+        "cla_required": {"type": "boolean"},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      }
+    },
+    "commercial_model": {
+      "type": "object",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "pure-open-core",
+            "hosted-first",
+            "hybrid",
+            "services-support",
+            "saas-with-oss-marketing"
+          ]
+        },
+        "primary_revenue_stream": {
+          "type": ["string", "null"],
+          "enum": [null, "cloud", "enterprise-license", "services", "support", "marketplace", "other"]
+        },
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      }
+    },
+    "pricing": {
+      "type": "object",
+      "required": ["free_tier_exists", "self_hosted_free_indefinite", "pricing_model"],
+      "additionalProperties": false,
+      "properties": {
+        "free_tier_exists": {"type": "boolean"},
+        "free_tier_notes": {"type": "string"},
+        "self_hosted_free_indefinite": {"type": "boolean"},
+        "self_hosted_restrictions": {"type": "string"},
+        "cloud_entry_price_usd_month": {"type": ["number", "null"], "minimum": 0},
+        "pricing_model": {
+          "type": "string",
+          "enum": ["per-seat", "usage", "capacity", "hybrid", "custom-only"]
+        },
+        "enterprise_min_declared_usd": {"type": ["integer", "null"], "minimum": 0},
+        "self_serve_ceiling_usd": {"type": ["integer", "null"], "minimum": 0},
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "default": "USD"
+        },
+        "pricing_page_url": {"type": "string", "format": "uri"},
+        "wayback_snapshots": {
+          "type": "array",
+          "items": {"type": "string", "format": "date"}
+        },
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      }
+    },
+    "feature_gating": {
+      "type": "object",
+      "required": ["sso_saml", "rbac_fine_grained", "audit_logs", "sla_support_tier"],
+      "additionalProperties": false,
+      "properties": {
+        "sso_saml": {"$ref": "#/$defs/gating_value"},
+        "rbac_fine_grained": {"$ref": "#/$defs/gating_value"},
+        "audit_logs": {"$ref": "#/$defs/gating_value"},
+        "sla_support_tier": {"$ref": "#/$defs/gating_value"},
+        "multi_region_ha": {"$ref": "#/$defs/gating_value"},
+        "white_label": {"$ref": "#/$defs/gating_value"},
+        "advanced_analytics": {"$ref": "#/$defs/gating_value"},
+        "api_rate_limits": {"$ref": "#/$defs/gating_value"},
+        "notes": {"type": "string"},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      }
+    },
+    "gating_value": {
+      "type": "string",
+      "enum": ["oss", "commercial", "partial", "na"]
+    },
+    "github": {
+      "type": "object",
+      "required": ["primary_repo_url", "snapshot_date", "stars"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_repo_url": {"type": "string", "format": "uri"},
+        "snapshot_date": {"type": "string", "format": "date"},
+        "stars": {"type": "integer", "minimum": 0},
+        "contributors_total": {"type": ["integer", "null"], "minimum": 0},
+        "contributors_l12m": {"type": ["integer", "null"], "minimum": 0},
+        "commits_l12m": {"type": ["integer", "null"], "minimum": 0},
+        "releases_l12m": {"type": ["integer", "null"], "minimum": 0},
+        "latest_release_date": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "format": "date"}
+          ]
+        },
+        "latest_release_version": {"type": ["string", "null"]}
+      }
+    },
+    "strategic_signals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "license_changes_l24m": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["date", "description"],
+            "properties": {
+              "date": {"type": "string", "format": "date"},
+              "description": {"type": "string"},
+              "source_url": {"type": "string", "format": "uri"}
+            }
+          }
+        },
+        "funding_rounds_l24m": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["date", "round_type"],
+            "properties": {
+              "date": {"type": "string", "format": "date"},
+              "round_type": {"type": "string"},
+              "amount_usd": {"type": ["integer", "null"], "minimum": 0},
+              "lead_investor": {"type": ["string", "null"]},
+              "source_url": {"type": "string", "format": "uri"}
+            }
+          }
+        },
+        "notable_customers": {
+          "type": "array",
+          "items": {"type": "string"},
+          "maxItems": 10
+        },
+        "pricing_changes_l24m": {"type": "string"},
+        "sources": {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["verification_status"],
+      "additionalProperties": false,
+      "properties": {
+        "verification_status": {
+          "type": "string",
+          "enum": ["unverified", "verified", "needs-review"]
+        },
+        "verification_date": {"type": "string", "format": "date"},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}

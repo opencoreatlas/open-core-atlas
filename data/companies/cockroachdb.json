@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "cockroachdb",
+  "name": "CockroachDB",
+  "category": "databases",
+  "status": "pending",
+  "data_collection_date": null
+}

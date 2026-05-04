@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "id": "camunda",
+  "name": "Camunda",
+  "category": "workflow-orchestration",
+  "status": "pending",
+  "data_collection_date": null
+}
