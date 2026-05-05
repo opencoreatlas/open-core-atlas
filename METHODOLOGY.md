@@ -380,8 +380,11 @@ Rules:
 - **Hourly prices** are converted to monthly using the convention **730 hours/month** (24 × 365.25 ÷ 12, the standard cloud-billing month length).
 - **Compute-only vs total bill.** If the chosen tier publishes a base price covering compute alone (with storage / egress / backup billed separately), capture the compute-only base price and document the multi-dimension nature in `metadata.notes`. Do not synthesize a "typical real-world bill" estimate — that is not a published price.
 - Any exclusions, ambiguity, or unusual tier structures (e.g., custom-only enterprise pricing as the only commercial path) must be documented in `metadata.notes`.
+- **Non-GA tiers (PREVIEW, BETA, ALPHA, EARLY ACCESS) are excluded** from `cloud_entry_price_usd_month`, unless they are the only paid public cloud option available. Atlas captures stable, generally available pricing as canonical because non-GA pricing and availability are by definition subject to change. Document the excluded non-GA tier in `metadata.notes` for context.
 
 *Example: MongoDB Atlas → Free (M0, USD 0/mo, excluded), Flex (variable, capped at USD 30/mo, excluded), M10 Dedicated (USD 0.08/hr × 730 = USD 58.40/mo, lowest fixed-price paid → captured). Storage / backup / egress billed separately → multi-dimension nature documented in `metadata.notes`.*
+
+*Example with non-GA exclusion: CockroachDB Cloud → Basic (USD 0/mo, free tier, excluded), Standard PREVIEW (2 vCPUs at USD 0.18/hr cluster total = USD 131.40/mo, **excluded** because PREVIEW is non-GA), Advanced (4 vCPUs at USD 0.60/hr cluster total = USD 438/mo, lowest GA fixed-price paid → captured). PREVIEW exclusion documented in `metadata.notes`.*
 
 ---
 
