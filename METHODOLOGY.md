@@ -366,6 +366,20 @@ Rationale: cross-company comparability — if MongoDB's array contained "buyback
 
 *Example: MongoDB has been public since 2017 IPO. L24M strategic events (Voyage AI acquisition Feb 2025, USD 200M buyback Feb 2025, CEO transition Nov 2025) are documented in `metadata.notes` but `funding_rounds_l24m: []`.*
 
+### 7.17 `pricing.cloud_entry_price_usd_month` — tier selection convention
+
+For products that publish multiple cloud tiers (free / variable / fixed dedicated), `cloud_entry_price_usd_month` captures the **lowest fixed-price paid cloud tier**.
+
+Rules:
+
+- **Free tiers are excluded.** A USD 0/mo tier is captured separately via `free_tier_exists: true` and `free_tier_notes`, not via `cloud_entry_price_usd_month`.
+- **Variable / capped tiers** (e.g., serverless tiers priced "up to USD X/month" or pure pay-per-use without a fixed monthly floor) **are excluded**, *unless* they are the only paid public cloud option. When a variable tier is the only paid option, capture it and document the variable nature in `metadata.notes`.
+- **Hourly prices** are converted to monthly using the convention **730 hours/month** (24 × 365.25 ÷ 12, the standard cloud-billing month length).
+- **Compute-only vs total bill.** If the chosen tier publishes a base price covering compute alone (with storage / egress / backup billed separately), capture the compute-only base price and document the multi-dimension nature in `metadata.notes`. Do not synthesize a "typical real-world bill" estimate — that is not a published price.
+- Any exclusions, ambiguity, or unusual tier structures (e.g., custom-only enterprise pricing as the only commercial path) must be documented in `metadata.notes`.
+
+*Example: MongoDB Atlas → Free (M0, USD 0/mo, excluded), Flex (variable, capped at USD 30/mo, excluded), M10 Dedicated (USD 0.08/hr × 730 = USD 58.40/mo, lowest fixed-price paid → captured). Storage / backup / egress billed separately → multi-dimension nature documented in `metadata.notes`.*
+
 ---
 
 ## 8. Schema TODOs (post-v1)
