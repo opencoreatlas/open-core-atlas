@@ -86,6 +86,7 @@ SPDX identifiers are used where available. Non-SPDX source-available licenses us
 - `FSL-1.1-Apache` (Sentry's Functional Source License with Apache fallback)
 - `PSAL-1.0` (PostHog Source Available License)
 - `SUL` (n8n Sustainable Use License — non-standard, no version)
+- `CSL` (CockroachDB Software License — non-standard source-available / proprietary, no explicit version in the LICENSE file at `github.com/cockroachdb/cockroach/blob/master/LICENSE`. If a later version is published, the canonical short form will become `CSL-N.M` and this vocabulary entry will be amended.)
 
 When a company offers two licenses concurrently, use composite `License-A+License-B` and set `dual_license: true`.
 
@@ -261,6 +262,8 @@ This is **distinct from**:
 To confirm `dual_license: true`, look for an explicit statement from the company offering a "commercial license" or "alternative license" for the same OSS code base — typically as escape from copyleft obligations (GPL/AGPL/SSPL).
 
 *Example: MongoDB Community Server source code is available under SSPL-1.0 OR a commercial license (per company FAQ stating "Customers and OEM partners using MongoDB under a commercial license will not be affected by this change"). Same code, two concurrent licenses → `dual_license: true`.*
+
+*Counter-example: CockroachDB pre-2024 was a heterogeneous repo where different files lived under different licenses (BSL-1.1 for core, CCL for Enterprise components, MIT and BSD-style for selected sub-files) — captured in `metadata.notes`, **not** via `dual_license`, because no single block of code was offered under two concurrent user-electable licenses. Post-2024, CockroachDB ships entirely under a single CSL (CockroachDB Software License) — trivially not dual licensing because no alternative is offered. In both states, `dual_license: false`.*
 
 ### 7.10 `license.cla_required` — confirmation hierarchy
 

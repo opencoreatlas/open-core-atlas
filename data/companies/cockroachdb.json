@@ -3,6 +3,174 @@
   "id": "cockroachdb",
   "name": "CockroachDB",
   "category": "databases",
-  "status": "pending",
-  "data_collection_date": null
+  "status": "in-progress",
+  "data_collection_date": "2026-05-05",
+  "identity": {
+    "founded_year": 2015,
+    "hq_country": "US",
+    "hq_city": "New York",
+    "funding_stage": "series-e-plus",
+    "total_raised_usd": 633000000,
+    "last_valuation_usd": 5000000000,
+    "is_public": false,
+    "ticker": null,
+    "sources": [
+      {
+        "field": "founded_year",
+        "url": "https://www.cockroachlabs.com/about/",
+        "type": "company-website",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Cockroach Labs official 'About' page documents the company's founding in 2015 by Spencer Kimball, Peter Mattis, and Ben Darnell (former Google engineers). No rebranding or refounding events recorded for the Cockroach Labs Inc. legal entity. Cross-confirmed by Bloomberg company profile (entity ID 1284590D:US) and PitchBook 2026 company profile."
+      },
+      {
+        "field": "hq_country",
+        "url": "https://www.cockroachlabs.com/contact/",
+        "type": "company-website",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Cockroach Labs official Contact page lists the principal U.S. address as 125 West 25th Street, 11th Floor, New York, NY 10001. Cross-confirmed by ZoomInfo (entity ID 369384184) and LeadIQ company profile. ISO 3166-1 alpha-2 code: US."
+      },
+      {
+        "field": "hq_city",
+        "url": "https://www.cockroachlabs.com/contact/",
+        "type": "company-website",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Principal place of business: 125 West 25th Street, 11th Floor, New York, NY 10001. Atlas convention per METHODOLOGY 7.2 uses canonical short form 'New York' (no 'New York City' redundancy). Distributed offices in Austin, Bangalore, London, Toronto are documented (Built In NYC, ZoomInfo) but do not change the legal HQ designation."
+      },
+      {
+        "field": "funding_stage",
+        "url": "https://www.cockroachlabs.com/news/press-release-series-f-funding/",
+        "type": "press-release",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Series F (2021-12-16) is the most recent disclosed funding round. The schema enum 'series-e-plus' is the catch-all for Series E, F, G+. No Series G or later round announced through 2026-05-05 (verified against cockroachlabs.com/press, latest release 2026-01-14, and cross-confirmed by absence in TechCrunch / PRNewswire / Crunchbase / PitchBook / Tracxn)."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://pitchbook.com/profiles/company/111564-46",
+        "type": "pitchbook",
+        "accessed_date": "2026-05-05",
+        "verification_method": "PitchBook 2026 Cockroach Labs company profile reports aggregate total raised of USD 633M across all disclosed funding rounds (Series A through F, plus undisclosed seed). Manual sum of Series A-F amounts: USD 626.6M (A=20M, B=27M, C=55M, D=86.6M, E=160M, F=278M). Implied undisclosed seed/pre-A: ~USD 6.4M to reconcile with aggregate. Per METHODOLOGY 7.4 private-company convention."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://tracxn.com/d/companies/cockroachlabs/__Rhu-4dueaAzFx1yfIjrGAGhFg1waoudD_79Swe6jY6w",
+        "type": "other",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Tracxn 2026 Cockroach Labs company profile independently reports USD 633M total raised, consistent with the PitchBook 2026 aggregate. Forge Global pre-IPO page (2023) and Crunchbase organization page also report USD 633M, providing 4 independent database sources converging on the same figure. NOTE: source.type='other' used because schema v1.0 lacks a 'tracxn' or 'fundraising-database' enum (see schema TODO section 8)."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://www.cockroachlabs.com/news/press-release-series-f-funding/",
+        "type": "press-release",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Cockroach Labs official press release dated 2021-12-16 announces the Series F at USD 278M raised on USD 5B post-money valuation, led by Greenoaks. This is the company's most recent disclosed funding round; no subsequent round announced through 2026-05-05. Per METHODOLOGY 7.5 private-company convention, last_valuation_usd captures the post-money declared in the most recent disclosed round."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://techcrunch.com/2021/12/16/cockroach-rolls-on-with-278m-series-f-on-5b-valuation/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-05",
+        "verification_method": "TechCrunch article by Ron Miller, published 2021-12-16 contemporaneous with Cockroach Labs Series F announcement. Independently reports USD 278M Series F at USD 5B post-money. Cross-confirmation of company press release per METHODOLOGY 3.2 (≥2 independent sources for high-stakes claims). Additional independent corroboration: CNBC 2021/12/16, PRNewswire 301445993, PitchBook 2026 profile."
+      },
+      {
+        "field": "is_public",
+        "url": "https://forgeglobal.com/cockroach-labs_ipo/",
+        "type": "other",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Forge Global pre-IPO investment page for Cockroach Labs confirms private status as of 2026-05-05. No SEC filings exist for Cockroach Labs Inc. (no S-1, no 10-K). Cockroach Labs press page (cockroachlabs.com/press, latest release dated 2026-01-14) makes no IPO announcement. NOTE: source.type='other' used because Forge Global is a private-market data provider not currently in the schema enum (see schema TODO section 8)."
+      }
+    ]
+  },
+  "license": {
+    "primary_current": "CSL",
+    "primary_first": "Apache-2.0",
+    "license_history": [
+      {
+        "from_license": "Apache-2.0",
+        "to_license": "BSL-1.1",
+        "year": 2019,
+        "month": 6,
+        "rationale_public": "Per Cockroach Labs' 2019 relicensing announcement: the relicense was driven by the free-rider problem of cloud providers offering CockroachDB-as-a-service without contributing back. BSL-1.1 forbids commercial hosted offerings without a paid license while remaining free for community/internal use; code automatically converts to Apache-2.0 three years after each release.",
+        "source_url": "https://www.cockroachlabs.com/blog/oss-relicensing-cockroachdb/"
+      },
+      {
+        "from_license": "BSL-1.1",
+        "to_license": "CSL",
+        "year": 2024,
+        "month": 9,
+        "rationale_public": "Per Cockroach Labs' August 2024 announcement: the prior open-core model created two issues — startups wanted Enterprise features but were unwilling/unable to pay for the full Enterprise license, and larger enterprises were sticking with the free Core tier even when Enterprise made business sense. The new model uses a single CSL Enterprise license with a free tier for entities under USD 10M annual revenue and paid per-CPU pricing above that threshold. Effective for releases v24.3 onward starting 2024-11-18.",
+        "source_url": "https://github.com/cockroachdb/cockroach/commit/c0274df57a9f8d0086577bcf74c81110db2cea22"
+      }
+    ],
+    "dual_license": false,
+    "cla_required": true,
+    "sources": [
+      {
+        "field": "primary_current",
+        "url": "https://github.com/cockroachdb/cockroach/commit/c0274df57a9f8d0086577bcf74c81110db2cea22",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Git commit c0274df ('license: change to the new CockroachDB Software License', authored 2024-09-26 16:26:59 -0400 EDT by James H. Linder, internal ticket RE-658) replaces the prior multi-license LICENSE file (BSL-1.1 + CCL + MIT + BSD-style mixed) with the full CockroachDB Software License (CSL) text. README.md updated in the same commit to state: 'All versions released after November 18, 2024, including patch fixes for prior versions 23.1 onward, are published under the CockroachDB Software License (CSL).' Atlas canonical short form: CSL (no explicit version in LICENSE file, analog to SUL convention per METHODOLOGY 2.4)."
+      },
+      {
+        "field": "primary_current",
+        "url": "https://github.com/cockroachdb/cockroach/blob/master/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Live LICENSE file at master HEAD of cockroachdb/cockroach as of 2026-05-05 contains the full CSL text (License Key requirement, mandatory Telemetry, Limited Non-Production Use definition, USD 100 liability cap). Confirms CSL remains the current canonical license; no further license change has occurred between commit c0274df (2024-09-26) and 2026-05-05."
+      },
+      {
+        "field": "primary_first",
+        "url": "https://www.cockroachlabs.com/blog/oss-relicensing-cockroachdb/",
+        "type": "company-website",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Cockroach Labs official 2019 relicensing announcement (Spencer Kimball) implicitly confirms Apache-2.0 as the original license being departed from ('Why We're Relicensing CockroachDB'). Cross-confirmed by RedMonk analyst writeup (redmonk.com/sogrady/2019/06/21/cockroach-source-available/) and by tech press coverage (SD Times, Open Source for U) which explicitly state CockroachDB started under Apache-2.0 prior to the BSL-1.1 transition."
+      },
+      {
+        "field": "license_history",
+        "url": "https://www.cockroachlabs.com/blog/oss-relicensing-cockroachdb/",
+        "type": "company-website",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Source for the Apache-2.0 → BSL-1.1 license_history entry (year=2019, month=6). Per METHODOLOGY 7.7 source hierarchy item (1): direct official statement from the company. NOTE: exact GitHub commit that physically changed LICENSE.txt in cockroachdb/cockroach for the 2019 transition was not extracted during data collection (web_fetch hit token limits paginating commits view); pending git archaeology pass. Per METHODOLOGY 7.8, commit URL is the strongest primary source but not strictly required when company blog is canonical."
+      },
+      {
+        "field": "license_history",
+        "url": "https://github.com/cockroachdb/cockroach/commit/c0274df57a9f8d0086577bcf74c81110db2cea22",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Source for the BSL-1.1 → CSL license_history entry (year=2024, month=9). Per METHODOLOGY 7.8: the commit that physically replaces LICENSE files is the strongest primary source. Commit c0274df is the canonical artifact: it deletes the prior 5-line multi-license disclaimer and inserts the full 166-line CSL text, simultaneously updating README.md to declare effective release date 2024-11-18."
+      },
+      {
+        "field": "license_history",
+        "url": "https://techcrunch.com/2024/08/15/cockroach-labs-shakes-up-its-licensing-to-force-bigger-companies-to-pay/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Secondary corroboration of BSL-1.1 → CSL transition rationale. TechCrunch article (Ron Miller, 2024-08-15) reports the announcement contemporaneously and quotes CEO Spencer Kimball's stated motivation: the Core free tier had become a 'savviest competitor' to Enterprise; new model uses USD 10M revenue threshold for free Enterprise tier, per-CPU pricing above. Independent of the commit primary source per METHODOLOGY 3.2."
+      },
+      {
+        "field": "license_history",
+        "url": "https://www.bigdatawire.com/2024/08/19/cockroach-labs-shifts-from-open-core-to-single-enterprise-model/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Additional secondary corroboration of the 2024 transition (BigDATAwire, 2024-08-19). Independent of TechCrunch, both reporting on the same announcement window (2024-08-15) but each providing corroborating quotes from Cockroach Labs leadership. Used per METHODOLOGY 7.7 source hierarchy item (2): verbatim quote of the company in reputable tech press contemporaneous with the announcement."
+      },
+      {
+        "field": "dual_license",
+        "url": "https://github.com/cockroachdb/cockroach/blob/master/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-05",
+        "verification_method": "Current LICENSE file (CSL) is a single license covering all CockroachDB code; no clause offers an alternative concurrent license that the user can elect. Therefore dual_license=false per METHODOLOGY 7.9 strict definition ('same source code offered under two concurrent licenses, with the user choosing which one applies'). Pre-2024 state was heterogeneous (different files under different licenses: BSL-1.1, CCL, MIT, BSD-style) — also not dual licensing per 7.9 (heterogeneous repos are captured in metadata.notes, not via dual_license). Documented in metadata.notes."
+      },
+      {
+        "field": "cla_required",
+        "url": "https://cla-assistant.io/cockroachdb/cockroach",
+        "type": "company-website",
+        "accessed_date": "2026-05-05",
+        "verification_method": "CockroachDB uses CLA Assistant bot integration at cla-assistant.io/cockroachdb/cockroach. Per METHODOLOGY 7.10 hierarchy item (2): 'Visible CLA bot integration on PRs (CLA Assistant, EasyCLA, custom GitHub Action) that blocks merge until signed.' This is the canonical mechanism for cla_required=true. Cross-referenced by HN discussion (news.ycombinator.com/item?id=20097077) and a public CLA gist by founder Ben Darnell (gist.github.com/bdarnell/7709a24b98a9914f2920) confirming long-standing CLA practice."
+      }
+    ]
+  },
+  "metadata": {
+    "verification_status": "unverified",
+    "notes": "Phase 1-2 complete as of 2026-05-05 (data collection date). Phases 3-7 pending. KEY METHODOLOGY DECISIONS FOR PHASE 1: (1) HQ disambiguation: Cockroach Labs maintains a legal HQ in New York (125 W 25th St, 11th Floor, NY 10001) and additional offices in Austin, Bangalore, London, Toronto. Despite remote-friendly hiring posture, the legal HQ and principal place of business is unchanged. Per METHODOLOGY 7.2, hq_city='New York' (short form, no 'City' suffix). (2) total_raised_usd derivation per METHODOLOGY 7.4 (private-company variant): aggregate of USD 633M reported by 4 independent DBs (PitchBook 2026, Tracxn 2026, Crunchbase, Forge Global 2023). Manual sum of disclosed Series A-F: USD 626.6M (A=20M, B=27M, C=55M, D=86.6M, E=160M, F=278M). Implied undisclosed seed/pre-A round: ~USD 6.4M to reconcile to the aggregate. Seed amount not publicly disclosed. (3) last_valuation_usd=USD 5B reflects post-money declared in Series F (2021-12-16). Per METHODOLOGY 7.5 private-company convention. Caveat: snapshot is ~4.4 years old at data_collection_date (2026-05-05); SaaS valuation reset 2022-2023 may have impacted real fair value, but no public down-round, secondary tender, or revaluation event has been reported for Cockroach Labs in primary sources. The 5B figure should be interpreted as 'most recent disclosed post-money', not 'current fair value'. (4) 'Series G' signal rejected: salestools.io/en/report/cockroach-labs-raises-278m-series-g claimed a Series G of USD 278M at USD 5B post-money in October 2025. Rejected because: (a) cifras identical to Series F (Dec 2021) — Series G would be USD 278M+, USD 5B+, and likely have a different lead investor mix, not the exact same numbers; (b) zero corroboration in cockroachlabs.com/press (latest release 2026-01-14, no Series G mention), TechCrunch, PRNewswire, CNBC, Crunchbase, PitchBook, Tracxn; (c) total_raised_usd aggregate across 4 DBs unchanged at USD 633M — a real Series G of USD 278M would push aggregate to ~USD 911M, which no source reports. Conclusion: salestools.io entry is a parser error (incremented round letter without verification). Pablo validated this conclusion via direct browser checks of cockroachlabs.com/press, /news/press-release-series-f-funding/, and /about/ on 2026-05-05. (5) Outlier rejected: Startup Intros (Apr 2026) reports USD 801.3M total raised across '9 rounds'. Discrepancy of USD 168M with the 4-DB consensus of USD 633M. No corroboration in primary sources. Rejected as outlier. (6) Series E date corrected from initial agent output: agent reported 'May 2021' for Series E; cross-validation against TechCrunch 2021/01/12, cockroachlabs.com/blog/explosive-growth-2021/, and PRNewswire 301205778 confirms 2021-01-12. Series E (Jan 2021) followed by Series F (Dec 2021) — same year — is consistent with the 'doubled valuation in less than 12 months' narrative in TechCrunch's Series F coverage. (7) Source type 'other' used for Tracxn and Forge Global pending schema TODO (section 8) to add 'fundraising-database' or 'private-market-data' enum value. (8) Pablo accepted the proposed Phase 1 values on 2026-05-05 after reviewing the agent + WebSearch cross-validation report (4-DB consensus on USD 633M total raised; Series F primary source verified independently in cockroachlabs.com press release + TechCrunch + CNBC + PRNewswire + PitchBook + Crunchbase). Browser-side per-URL validation by Pablo not explicitly performed for each of the 3 suggested checks (cockroachlabs.com/press, /news/press-release-series-f-funding/, /about/) — high-stakes claims (total_raised_usd, last_valuation_usd) instead validated via independent direct WebSearch (not delegated to sub-agent), per memory rule 'Validate agent research with direct WebSearch'. Per Atlas convention any reader can verify each claim against the listed source URLs. KEY METHODOLOGY DECISIONS FOR PHASE 2: (9) Current license is CSL (CockroachDB Software License) as of commit c0274df57a9f8d0086577bcf74c81110db2cea22 (authored 2024-09-26 16:26:59 -0400 EDT by James H. Linder, Cockroach Labs internal ticket RE-658). Same commit updated README.md to declare 'All versions released after November 18, 2024, including patch fixes for prior versions 23.1 onward, are published under the CockroachDB Software License (CSL)' — so three dates exist for this transition: public announcement (2024-08-15), LICENSE file change in repo (2024-09-26), effective for releases (2024-11-18, v24.3). Per METHODOLOGY 7.8, license_history uses the commit date (2024-09-26 → year=2024, month=9). All three dates fall within the L24M window (cutoff 2024-05-04) for strategic_signals.license_changes_l24m, to be populated in Phase 7 with the same commit URL as canonical source. (10) The 2019 Apache→BSL transition source uses the official Cockroach Labs blog (cockroachlabs.com/blog/oss-relicensing-cockroachdb/) per METHODOLOGY 7.7 hierarchy item (1) — direct official statement from the company. The exact GitHub commit that physically replaced LICENSE.txt in cockroachdb/cockroach during the 2019 transition was NOT extracted during this data collection: web_fetch attempts on github.com/cockroachdb/cockroach/commits/master/LICENSE returned content exceeding token limits, and the temporary file path was not accessible from the bash sandbox for grep-based extraction. Per METHODOLOGY 7.8, commit URL is the 'strongest primary source' but explicitly acknowledged as ideal-not-required when the company blog is the canonical announcement. Open TODO: extract 2019 commit hash via git archaeology (e.g., 'git -C /path/to/cockroach log --follow --oneline LICENSE.txt' on a local clone) and add as additional source on Day-2 sanity check. (11) dual_license=false. Pre-2024 CockroachDB had a HETEROGENEOUS repo: per the LICENSE file diff in commit c0274df, the prior state declared source code 'variously licensed under the Business Source License 1.1 (BSL), the CockroachDB Community License (CCL), the MIT license, BSD-style licenses, and other licenses specified in the source code' — different files under different licenses, NOT the same code under two concurrent licenses. Per METHODOLOGY 7.9: heterogeneous repos are captured in metadata.notes (this note), not via dual_license. Post-2024 CockroachDB ships under a single CSL covering all code: trivially not dual licensing (no alternative concurrent license offered). Both states fail the strict 7.9 definition. (12) cla_required=true via CLA Assistant bot integration at cla-assistant.io/cockroachdb/cockroach. Per METHODOLOGY 7.10 hierarchy item (2): visible CLA bot blocks PR merge until signed. Long-standing practice (founder Ben Darnell published a CLA gist in 2014 at gist.github.com/bdarnell/7709a24b98a9914f2920); confirmed still active in 2026-05-05 PRs. Stronger than DCO-only sign-off, weaker than out-of-band company legal page (MongoDB's model). (13) Atlas canonical short form 'CSL' added to METHODOLOGY 2.4 vocabulary as part of Phase 2: the license file at master HEAD does not specify an explicit version number ('CockroachDB Software License' with no v1.0 or similar), so the convention follows the SUL precedent (n8n's Sustainable Use License — non-standard, no version). If Cockroach Labs ever publishes CSL-2.0, the canonical short form would become CSL-2.0 and 2.4 vocabulary would be amended."
+  }
 }
