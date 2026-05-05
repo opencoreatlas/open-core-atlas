@@ -145,5 +145,6 @@ license_examples:
   - FSL-1.1-Apache   # Functional Source License (Sentry post-2023)
   - PSAL-1.0         # PostHog Source Available License
   - SUL              # n8n Sustainable Use License (non-standard, no version)
+  - CSL              # CockroachDB Software License post-2024 (non-standard, no version)
 # When a company offers two licenses concurrently, use composite "License-A+License-B"
 # and set `dual_license: true`.
