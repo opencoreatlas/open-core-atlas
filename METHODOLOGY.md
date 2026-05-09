@@ -386,6 +386,23 @@ Rules:
 
 *Example with non-GA exclusion: CockroachDB Cloud → Basic (USD 0/mo, free tier, excluded), Standard PREVIEW (2 vCPUs at USD 0.18/hr cluster total = USD 131.40/mo, **excluded** because PREVIEW is non-GA), Advanced (4 vCPUs at USD 0.60/hr cluster total = USD 438/mo, lowest GA fixed-price paid → captured). PREVIEW exclusion documented in `metadata.notes`.*
 
+### 7.18 `license.primary_current` — time-delayed automatic conversion (FSL, BSL family)
+
+For licenses with time-delayed automatic conversion mechanisms (e.g., FSL, BSL), `license.primary_current` records the license governing **HEAD / latest generally available release** at `data_collection_date`, not the older license governing previously converted historical code. The conversion mechanism, conversion delay, and post-conversion license are documented in `metadata.notes`. This does **not** count as `dual_license: true` unless the same current source code is simultaneously offered under user-selectable alternative licenses.
+
+Rules:
+
+- **HEAD/latest GA release wins.** `primary_current` reflects the license that applies to anyone who clones, forks, or downloads the project today. The barrier to current commercial use is the canonical signal.
+- **Historical converted code reachable only through deliberate checkout of older commits/tags does not redefine `primary_current`.** Per-version conversion (where each commit/release independently converts on its own anniversary) is a property of the license mechanism, not of the project's *current* license posture. Atlas measures the latter.
+- **Conversion mechanism documented in `metadata.notes`.** Capture: (a) the conversion delay (e.g., 24 months for FSL, 36 months for BSL-1.1 in Sentry's pre-2023 configuration, variable for HashiCorp/MariaDB BSL configurations); (b) the post-conversion license (e.g., Apache-2.0 for FSL-1.1-Apache-2.0, MIT for FSL-1.1-MIT); (c) whether conversion is per-version (FSL canonical) or global to the project at a single change date (BSL canonical when configured that way); (d) whether the conversion was retroactive at adoption (covering all prior versions immediately) or forward-only (covering only versions published after adoption).
+- **Vocabulary short form is SPDX-canonical, not abbreviated.** Use `FSL-1.1-Apache-2.0`, not bare `FSL` (variants exist: FSL-1.0-Apache-2.0, FSL-1.1-MIT, FSL-1.0-MIT — variant matters for license-history analysis). Use `BSL-1.1`, not bare `BSL` (BSL-1.0 also exists). Where the LICENSE file itself declares an "Abbreviation:" field, that field is the canonical short form for Atlas vocabulary.
+- **Applies to FSL family and BSL family.** Future schema-extension candidates that fit the same pattern (e.g., `BUSL-1.1`, or `Elastic-2.0` if reconfigured with auto-conversion in a future version) inherit this rule.
+- **Does not apply to permissive-to-source-available transitions without conversion (e.g., Apache → SSPL, Apache → CSL).** Those are clean license changes captured fully in `license_history` with a single canonical date; `primary_current` is unambiguous.
+
+*Example: Sentry adopted FSL-1.1-Apache-2.0 on 2023-11-20 (blog announcement, contemporaneous LICENSE.md change in `getsentry/sentry`). Each Sentry release independently converts to Apache-2.0 on its second anniversary. `primary_current = "FSL-1.1-Apache-2.0"` because that is the license at HEAD master and on the latest GA release. The conversion mechanism (per-version, 24 months, post-conversion = Apache-2.0) is documented in `metadata.notes`. `dual_license: false` because the user does not select between FSL and Apache concurrently — the conversion happens automatically as a function of release age. A user who deliberately checks out a release tag from >24 months ago is using a converted Apache-2.0 version, but that does not redefine `primary_current`.*
+
+*Example (BSL with global change date): CockroachDB's pre-2024 BSL-1.1 configuration was a 3-year-delayed conversion to Apache-2.0. From Atlas's vantage in 2026, all CockroachDB BSL releases shipped before approximately May 2023 are now technically Apache-2.0 by conversion. This does not retroactively change the BSL period entry in `license.license_history`, and it did not change `primary_current` while CockroachDB was still under BSL — `primary_current` then would have been `"BSL-1.1"`. The 2024 transition to CSL replaced the BSL configuration entirely; CSL has no time-delayed conversion mechanism, so `primary_current = "CSL"` post-2024 is unambiguous.*
+
 ---
 
 ## 8. Schema TODOs (post-v1)
