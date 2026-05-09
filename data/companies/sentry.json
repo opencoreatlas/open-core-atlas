@@ -3,6 +3,106 @@
   "id": "sentry",
   "name": "Sentry",
   "category": "observability",
-  "status": "pending",
-  "data_collection_date": null
+  "status": "in-progress",
+  "data_collection_date": "2026-05-09",
+  "identity": {
+    "founded_year": 2012,
+    "hq_country": "US",
+    "hq_city": "San Francisco",
+    "funding_stage": "series-e-plus",
+    "total_raised_usd": 217000000,
+    "last_valuation_usd": 3000000000,
+    "is_public": false,
+    "ticker": null,
+    "sources": [
+      {
+        "field": "founded_year",
+        "url": "https://cra.mr/sentry-from-the-beginning/",
+        "type": "other",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Founder narrative: David Cramer's personal blog 'Sentry: From the Beginning' documents the project's history. Origin of the open-source code is 2008 (Cramer's unlicensed Django plugin), but Functional Software, Inc. — the legal entity currently operating Sentry — was incorporated separately. Per METHODOLOGY 7.1, founded_year tracks the legal entity, not the project. Cra.mr is the founder's personal blog (source.type='other' because it does not fit company-website / tech-press / press-release enums; it is a primary first-person founder source which is the strongest available narrative for company-founding history)."
+      },
+      {
+        "field": "founded_year",
+        "url": "https://www.cio.com/article/401704/sentrys-david-cramer-on-bootstrapping-a-unicorn.html",
+        "type": "tech-press",
+        "accessed_date": "2026-05-09",
+        "verification_method": "CIO piece (Jan 2020) on Sentry as a bootstrapped unicorn references '8 years since incorporation as of January 2020', implying incorporation around 2012. Combined with the Cramer narrative (Heroku AddOn launch end-of-2012, 'David founded Sentry in January 2012'), founded_year=2012 is the best available triangulated estimate. Per METHODOLOGY 3.2, ≥2 independent sources for the high-stakes claim. CONFIDENCE: MEDIUM. Exact Delaware Division of Corporations incorporation certificate for Functional Software, Inc. was NOT retrieved during Phase 1 (Atlas Free Preview egress allowlist does not include sec.gov / Delaware corporate registry endpoints). TODO post-Free-Preview: validate against Delaware certificate of incorporation; if exact incorporation date differs from 2012, update with HIGH confidence."
+      },
+      {
+        "field": "founded_year",
+        "url": "https://github.com/getsentry/sentry/blob/master/LICENSE.md",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Sentry's current LICENSE.md (HEAD master, browser-validated by Pablo on 2026-05-09) declares 'Copyright 2008-2024 Functional Software, Inc. dba Sentry'. The 2008 start of the copyright claim reflects the original year of the open-source code (assigned to the entity at incorporation), NOT the year the entity itself was incorporated. Atlas uses 2012 per METHODOLOGY 7.1 ('Year of legal incorporation of the jurisdictional entity that currently operates the company'). Pablo's ruling on 2026-05-09 explicitly chose 2012 over 2008 to maintain consistency with MongoDB (founded_year=2007 = 10gen Inc. incorporation) and CockroachDB (founded_year=2015 = Cockroach Labs Inc. incorporation), both of which apply 7.1 strictly to legal entities, not to project origins. METHODOLOGY 7.1 NOT amended — this case is canonical 7.1 application, not an edge requiring rule extension."
+      },
+      {
+        "field": "hq_country",
+        "url": "https://www.crunchbase.com/organization/sentry",
+        "type": "other",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Crunchbase Sentry profile lists headquarters as San Francisco, California, United States. ISO 3166-1 alpha-2 code: US. Cross-confirmed by sentry.io official press release (Series E, May 2022) which describes Sentry as 'San Francisco-based market leader in developer-first application monitoring'. Source.type='other' used because Crunchbase is a private-market data provider not currently in the schema enum (analog to Tracxn/PitchBook/Forge Global handling in earlier records; see schema TODO section 8 for proposed v1.1 'fundraising-database' enum)."
+      },
+      {
+        "field": "hq_country",
+        "url": "https://sentry.io/about/press-releases/sentry-raises-90-million-in-series-e-funding-to-expand-and-drive-adoption-of-developer-first-application-monitoring/",
+        "type": "press-release",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Sentry official Series E press release (sentry.io, May 2022) describes the company as 'San Francisco-based'. Independent corroboration of Crunchbase per METHODOLOGY 3.2."
+      },
+      {
+        "field": "hq_city",
+        "url": "https://sentry.io/about/press-releases/sentry-raises-90-million-in-series-e-funding-to-expand-and-drive-adoption-of-developer-first-application-monitoring/",
+        "type": "press-release",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Sentry official Series E press release describes the company as 'San Francisco-based'. Atlas convention per METHODOLOGY 7.2: canonical short form 'San Francisco' (no 'San Francisco, CA' redundancy at this field — the U.S. state qualifier belongs in narrative context, not the canonical city short form). Cross-confirmed by Crunchbase, Sacra (sacra.com/c/sentry/), Tracxn 2026."
+      },
+      {
+        "field": "funding_stage",
+        "url": "https://sentry.io/about/press-releases/sentry-raises-90-million-in-series-e-funding-to-expand-and-drive-adoption-of-developer-first-application-monitoring/",
+        "type": "press-release",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Series E (USD 90M, May 2022) is the most recent disclosed funding round. The schema enum 'series-e-plus' is the catch-all for Series E and later. No Series F or later round announced through 2026-05-09 (verified against sentry.io press releases page, blog.sentry.io, TechCrunch, PRNewswire, PitchBook 2026 profile, Crunchbase, Tracxn 2026)."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://pitchbook.com/profiles/company/119461-87",
+        "type": "pitchbook",
+        "accessed_date": "2026-05-09",
+        "verification_method": "PitchBook 2026 Sentry company profile reports aggregate total raised of USD 217M across all disclosed funding rounds. Manual sum of disclosed rounds: Seed (1.5M, 2015) + Series A (9M, 2016) + Series B (16.5M, 2018) + Series C (40M, 2019) + Series D (60M, 2021) + Series E (90M, 2022) = USD 217.0M EXACTLY. Per METHODOLOGY 7.4 private-company convention. Unlike CockroachDB (where Series A-F manual sum left an implied USD 6.4M undisclosed seed gap to reconcile to the 633M aggregate), Sentry's manual sum reconciles exactly with the aggregate — no implied undisclosed rounds. CONFIDENCE: HIGH."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://sacra.com/c/sentry/",
+        "type": "other",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Sacra private-market research profile for Sentry independently reports USD 217M total raised, consistent with PitchBook 2026 aggregate. Cross-corroborated by Crunchbase organization page and Tracxn 2026 ('Sentry has raised a total of $217M over 6 funding rounds'). Four independent database sources converge on the same figure. Per METHODOLOGY 3.2, ≥2 independent sources for high-stakes claim. NOTE: source.type='other' used because Sacra is a private-market data provider not currently in the schema enum (consistent with prior Tracxn/Forge Global handling)."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://sentry.io/about/press-releases/sentry-raises-90-million-in-series-e-funding-to-expand-and-drive-adoption-of-developer-first-application-monitoring/",
+        "type": "press-release",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Sentry official Series E press release (May 2022) announces USD 90M raised at 'more than $3 billion' post-money valuation. Co-led by BOND and Accel, with NEA and K5 Global participating. This is the company's most recent disclosed funding round; no subsequent round announced through 2026-05-09. Per METHODOLOGY 7.5 private-company convention, last_valuation_usd captures the post-money declared in the most recent disclosed round. Atlas value: USD 3,000,000,000 (the press release language 'more than $3 billion' is rounded to the nearest billion as the published headline figure; precise post-money was reported as approximately USD 3B by tech press and private-market DBs)."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://www.thesaasnews.com/news/sentry-raises-90-million-in-series-e",
+        "type": "tech-press",
+        "accessed_date": "2026-05-09",
+        "verification_method": "The SaaS News piece on Sentry Series E independently reports USD 3B post-money valuation. Cross-confirmation per METHODOLOGY 3.2. Additional corroboration: Sacra (sacra.com/c/sentry/) and PitchBook 2026 both list Series E post-money at USD 3B. CAVEAT: snapshot is ~4 years old at data_collection_date (2026-05-09); SaaS valuation reset 2022-2023 may have impacted real fair value, but no public down-round, secondary tender, or revaluation event has been reported for Sentry in primary sources. The 3B figure should be interpreted as 'most recent disclosed post-money', not 'current fair value' (analog to CockroachDB last_valuation_usd handling)."
+      },
+      {
+        "field": "is_public",
+        "url": "https://sacra.com/c/sentry/",
+        "type": "other",
+        "accessed_date": "2026-05-09",
+        "verification_method": "Sacra private-market research confirms Sentry's private status as of 2026-05-09. No SEC filings exist for Functional Software, Inc. dba Sentry (no S-1, no 10-K, no Form D filings discoverable through SEC EDGAR direct search by entity name). Cross-confirmed by Crunchbase organization page (status: private) and Tracxn 2026 (latest disclosed liquidity event = Series E, no IPO announcement). NOTE: source.type='other' used per Sacra/Crunchbase pattern."
+      }
+    ]
+  },
+  "metadata": {
+    "verification_status": "unverified",
+    "notes": "Phase 1 complete as of 2026-05-09 (data collection date). Phases 2-7 pending. KEY METHODOLOGY DECISIONS FOR PHASE 1: (1) founded_year=2012 per METHODOLOGY 7.1 strict (year of legal incorporation of the jurisdictional entity that currently operates the company = Functional Software, Inc. dba Sentry). Sentry originated in 2008 as David Cramer's unlicensed Django plugin / open-source project, and the current LICENSE.md (browser-validated by Pablo 2026-05-09) declares 'Copyright 2008-2024 Functional Software, Inc. dba Sentry'. The 2008 start of the copyright claim reflects the original year of the open-source code, assigned to the entity at incorporation; NOT the year the entity itself was incorporated. Atlas uses 2012 because the field tracks the legal entity, not the codebase origin. Triangulated from: (a) cra.mr/sentry-from-the-beginning/ (David Cramer founder narrative — Heroku AddOn launch end-of-2012, 'David founded Sentry in January 2012'); (b) cio.com Jan 2020 piece referencing '8 years since incorporation as of January 2020' (2020 - 8 = 2012). CONFIDENCE: MEDIUM. Exact Delaware Division of Corporations incorporation certificate for Functional Software, Inc. was NOT retrieved during Phase 1 (Atlas Free Preview egress allowlist does not include sec.gov / Delaware corporate registry endpoints; Crunchbase pages also outside cowork-egress). TODO post-Free-Preview: validate founded_year=2012 against the Delaware certificate of incorporation; if exact incorporation date differs (e.g., 2011 if entity was registered before product launch, or different month within 2012), update with HIGH confidence. METHODOLOGY 7.1 NOT amended — this case is canonical 7.1 application, not an edge requiring rule extension. Pablo ruling on 2026-05-09: 2012 over 2008 to maintain Atlas consistency with MongoDB (founded_year=2007 = 10gen Inc. incorporation) and CockroachDB (founded_year=2015 = Cockroach Labs Inc. incorporation), both of which apply 7.1 strictly to legal entities, not to project origins. (2) hq_city='San Francisco' per METHODOLOGY 7.2 canonical short form (no 'San Francisco, CA' redundancy). Cross-confirmed against Crunchbase, Sacra, Tracxn, sentry.io official Series E press release. (3) total_raised_usd=USD 217M derived per METHODOLOGY 7.4 (private-company variant). Manual sum of disclosed rounds: Seed (1.5M, 2015) + A (9M, 2016) + B (16.5M, 2018) + C (40M, 2019) + D (60M, 2021) + E (90M, 2022) = 217M EXACTLY. No implied undisclosed seed/pre-A round (contrast with CockroachDB which had a 6.4M reconciliation gap). Four independent DBs (PitchBook 2026, Sacra, Crunchbase, Tracxn 2026) converge on 217M. CONFIDENCE: HIGH. (4) last_valuation_usd=USD 3B reflects post-money declared in Series E (May 2022). The press release language 'more than $3 billion' is rounded to the nearest billion as the published headline figure; precise post-money was reported as approximately USD 3B by tech press and private-market DBs. CONFIDENCE: HIGH on the headline figure with documented imprecision (the 'more than' qualifier means the exact post-money may have been slightly above 3B, e.g., 3.05B-3.2B; private-company convention captures the rounded headline). Caveat: snapshot is ~4 years old at data_collection_date; SaaS valuation reset 2022-2023 may have impacted real fair value, but no public down-round, secondary tender, or revaluation event has been reported. Interpret as 'most recent disclosed post-money', not 'current fair value' (analog to CockroachDB handling). (5) Source.type='other' used for Crunchbase and Sacra (private-market data providers) consistent with prior Tracxn/Forge Global handling in MongoDB and CockroachDB records. Schema TODO section 8 captures the proposed v1.1 enum addition 'fundraising-database' / 'private-market-data'. (6) FSL-related decisions deferred to Phase 2. Pre-research completed 2026-05-09 with all six A-F decisions validated by Pablo before opening this file (timeline: 2008 unlicensed → 2009 BSD-3-Clause → 2019-11-06 BSL-1.1 → 2023-11-20 FSL-1.1-Apache-2.0). METHODOLOGY 7.18 added as standalone hygiene commit (commit c820708) before Phase 1 began, codifying the time-delayed conversion rule for FSL/BSL families. controlled-vocabularies.yaml updated in the same commit to fix a vocabulary drift (FSL-1.1-Apache → FSL-1.1-Apache-2.0)."
+  }
 }
