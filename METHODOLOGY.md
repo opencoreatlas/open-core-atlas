@@ -403,6 +403,44 @@ Rules:
 
 *Example (BSL with global change date): CockroachDB's pre-2024 BSL-1.1 configuration was a 3-year-delayed conversion to Apache-2.0. From Atlas's vantage in 2026, all CockroachDB BSL releases shipped before approximately May 2023 are now technically Apache-2.0 by conversion. This does not retroactively change the BSL period entry in `license.license_history`, and it did not change `primary_current` while CockroachDB was still under BSL — `primary_current` then would have been `"BSL-1.1"`. The 2024 transition to CSL replaced the BSL configuration entirely; CSL has no time-delayed conversion mechanism, so `primary_current = "CSL"` post-2024 is unambiguous.*
 
+### 7.19 `github.releases_l12m` measures release strategy, not development activity
+
+`github.releases_l12m` captures externally visible release cadence over the last 12 months. It should be interpreted as a release-management signal, not as a direct proxy for engineering velocity.
+
+Different projects can generate radically different release counts while having comparable or opposite development activity, depending on:
+- single-trunk vs multi-branch release strategy
+- backport policy
+- LTS patch cadence
+- release-candidate / alpha / beta tagging practices
+- calendar-versioning vs semantic-versioning conventions
+- whether the project publishes GitHub Releases, Git tags, or external release artifacts
+
+Cross-record example at N=3:
+- MongoDB: 97 releases / 10,768 commits L12M
+- CockroachDB: 133 releases / 13,843 commits L12M
+- Sentry: 21 releases / 21,099 commits L12M
+
+Sentry has far fewer releases than CockroachDB but substantially more commits in the same period. Therefore, `releases_l12m` is not a safe standalone measure of development activity.
+
+Use `releases_l12m` to reason about packaging, release discipline, maintenance surface, and operational cadence — not raw development speed.
+
+### 7.20 Use `commits_l12m` as the canonical development-activity metric in cross-record analysis
+
+For cross-company comparisons of engineering activity, Atlas treats `github.commits_l12m` as the primary quantitative proxy and `github.releases_l12m` as contextual metadata.
+
+Interpretation hierarchy:
+1. `commits_l12m` → best available proxy for development activity / code-change volume
+2. `contributors_l12m` → breadth of active contributor base
+3. `releases_l12m` → release strategy / packaging cadence / maintenance policy
+4. `stars` → audience awareness / developer reach, not activity
+
+Reports and record summaries MUST NOT infer “Project A is more active than Project B” from release counts alone.
+
+If release counts and commit counts disagree, prefer the commit signal for development-activity claims and explain the release-strategy difference in prose.
+
+Example:
+CockroachDB has 133 releases L12M vs Sentry’s 21, but Sentry has 21,099 commits L12M vs CockroachDB’s 13,843. Atlas should describe CockroachDB as having higher release cadence, not higher development activity.
+
 ---
 
 ## 8. Schema TODOs (post-v1)
