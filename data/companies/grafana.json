@@ -3,6 +3,427 @@
   "id": "grafana",
   "name": "Grafana Labs",
   "category": "observability",
-  "status": "pending",
-  "data_collection_date": null
+  "status": "in-progress",
+  "data_collection_date": "2026-05-17",
+  "identity": {
+    "founded_year": 2014,
+    "hq_country": "US",
+    "hq_city": "New York",
+    "funding_stage": "series-d",
+    "total_raised_usd": 1090000000,
+    "last_valuation_usd": 6000000000,
+    "is_public": false,
+    "ticker": null,
+    "sources": [
+      {
+        "field": "founded_year",
+        "url": "https://lei.bloomberg.com/leis/view/254900C887Y5T9RPKQ79",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Bloomberg LEI registry for Raintank Inc. (LEI 254900C887Y5T9RPKQ79) records the legal entity as 'created on 2014-10-06'. Per METHODOLOGY 7.1 (year of legal incorporation of the jurisdictional entity that currently operates the company), founded_year=2014. Grafana Labs is the current trading/operating name of Raintank Inc., rebranded in March 2017 (per grafana.com/blog/2017/03/13/we-are-now-grafana-labs). The Grafana open-source project itself was first released January 2014 (predates the corporation by ~9 months) and was originally a hobby project by Torkel Ödegaard at eBay — NOT counted as founded_year per 7.1. Source.type='other' because Bloomberg LEI is a regulatory ID registry not currently in schema enum (analog to Crunchbase/Sacra/Tracxn handling). Cross-confirmed with grafana.com 'we are now Grafana Labs' (March 2017 announcement says 'almost 3 years' since founding, consistent with late-2014)."
+      },
+      {
+        "field": "founded_year",
+        "url": "https://grafana.com/blog/2017/03/13/we-are-now-grafana-labs/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Official Grafana Labs blog post (March 2017) announcing the rebrand from Raintank to Grafana Labs. Confirms the entity was founded ~late-2014 ('Almost 3 years ago'). Independent corroboration of the LEI Bloomberg date per METHODOLOGY 3.2 (≥2 independent sources for high-stakes claim). Cofounders: Torkel Ödegaard, Raj Dutt, Anthony Woods."
+      },
+      {
+        "field": "hq_country",
+        "url": "https://opengovus.com/sam-entity/JNL8JK7S1G89",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "OpenGovUS SAM entity record for Raintank Inc. (Grafana Labs) lists HQ address as 29 Broadway, Penthouse, New York, NY, US. ISO 3166-1 alpha-2 code: US. Source.type='other' because SAM (System for Award Management, U.S. federal contractor registry) is not currently in schema enum. Cross-confirmed with multiple tech-press sources (TechCrunch 2024-08-21 Series D ext piece describes Grafana as 'New York-based'; Crunchbase organization page lists NY HQ)."
+      },
+      {
+        "field": "hq_country",
+        "url": "https://techcrunch.com/2024/08/21/grafana-labs-is-now-valued-at-6b/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-17",
+        "verification_method": "TechCrunch Series D extension piece (2024-08-21) describes Grafana Labs as headquartered in New York. Independent corroboration of OpenGovUS per METHODOLOGY 3.2."
+      },
+      {
+        "field": "hq_city",
+        "url": "https://opengovus.com/sam-entity/JNL8JK7S1G89",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "OpenGovUS SAM entity record specifies the New York street address (29 Broadway, Penthouse). Atlas convention per METHODOLOGY 7.2: canonical short form 'New York' (no NY state qualifier in the canonical city short form — analog to 'San Francisco' for Sentry)."
+      },
+      {
+        "field": "funding_stage",
+        "url": "https://grafana.com/press/2024/08/21/grafana-labs-soars-past-250m-arr-and-5000-customers-completes-270m-primary-and-secondary-transaction-and-named-a-leader-in-the-gartner-magic-quadrant-for-observability-platforms/",
+        "type": "press-release",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Official Grafana Labs press release (2024-08-21) confirms USD 270M Series D extension at valuation 'over $6B', led by existing investor Lightspeed Venture Partners with CapitalG (Alphabet's growth fund) joining as new investor. Per Atlas convention, an extension of a prior round is captured at the original round letter (Series D), not promoted to a new letter — funding_stage='series-d'. METHODOLOGICAL CAVEAT: multiple secondary sources (Tracxn 2026, SiliconANGLE 2026-02-13, The Information, LinkedIn post by KSA Strategists Dec 2025) report a Series E round of USD 250M at USD 9B valuation closed Feb 25 or March 12, 2026, lead investor GIC sovereign wealth fund, with CapitalG / Lightspeed / Sequoia participating. NO official Grafana Labs press release for the Series E found at grafana.com/press as of data_collection_date 2026-05-17. Per METHODOLOGY hierarchy (7.7 item 1 = direct official statement), the Series D extension is the most recent disclosed round with company-confirmed press release; the Series E is documented in metadata.notes as a reported event pending Grafana official confirmation. funding_stage will be re-evaluated to 'series-e-plus' when official press release is located. CONFIDENCE: HIGH for Series D ext as captured; MEDIUM for the absence of Series E (likely cleared but pending direct company confirmation)."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://tracxn.com/d/companies/grafana/___YLnv1__Y26usD-QBbRWcBhyQ87C4VBrvKqkMV7TkUQ/funding-and-investors",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Tracxn 2026 Grafana company profile reports aggregate total raised of USD 1.09B across 11 disclosed funding rounds pre-Series E (manual sum of disclosed rounds: Series A 2018 + Series B 2019 + Series B-2 USD 50M Aug 2020 + Series C USD 220M Aug 2021 + Series D USD 240M Apr 2022 + Series D ext USD 270M Aug 2024 + smaller earlier seed/A round). Per METHODOLOGY 7.4 private-company convention. Cross-confirmed with Crunchbase organization page (USD 1.09B over 11 rounds). NOTE: if the reported Series E USD 250M closed Feb/Mar 2026, the actual total_raised_usd would be approximately USD 1.34B; this is documented in metadata.notes as a TODO to upgrade once official Series E confirmation is located. CONFIDENCE: MEDIUM. Atlas captures USD 1.09B as the conservative figure backed by ≥2 source corroboration (Tracxn + Crunchbase). The discrepancy with possible USD 1.34B if Series E cleared is acknowledged but not synthesized as fact pending official press release."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://www.crunchbase.com/organization/raintank",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Crunchbase organization profile for Raintank/Grafana Labs reports USD 1.09B aggregate funding across 11 rounds. Independent corroboration of Tracxn per METHODOLOGY 3.2. Source.type='other' because Crunchbase is private-market data provider not in schema enum (analog to Sentry/CockroachDB precedent)."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://grafana.com/press/2024/08/21/grafana-labs-soars-past-250m-arr-and-5000-customers-completes-270m-primary-and-secondary-transaction-and-named-a-leader-in-the-gartner-magic-quadrant-for-observability-platforms/",
+        "type": "press-release",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Official Grafana Labs press release (2024-08-21) declares USD 270M Series D extension at valuation 'over $6 billion'. Atlas value: USD 6,000,000,000 (the press release language is the floor; precise post-money is reported by Sacra/Contrary as approximately USD 6B). Per METHODOLOGY 7.5 private-company convention, last_valuation_usd captures the post-money declared in the most recent disclosed-and-confirmed round. CAVEAT identical to funding_stage: the Series E Feb/Mar 2026 reportedly at USD 9B valuation is documented in metadata.notes as a candidate upgrade pending official confirmation. Atlas conservative posture: capture confirmed USD 6B; do not synthesize USD 9B until press release located."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://techcrunch.com/2024/08/21/grafana-labs-is-now-valued-at-6b/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-17",
+        "verification_method": "TechCrunch (2024-08-21) independently corroborates the USD 6B valuation for the Series D extension. Headline 'Grafana Labs is now valued at $6B'. Cross-confirmation per METHODOLOGY 3.2. Additional triangulation: Cooley law firm coverage (2024-08-21, the legal advisor on the transaction), BigDATAwire (2024-08-26), Sacra Grafana profile. Four independent sources converge on USD 6B."
+      },
+      {
+        "field": "is_public",
+        "url": "https://www.crunchbase.com/organization/raintank",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Crunchbase Grafana Labs / Raintank organization profile lists status as private. No SEC filings exist for Raintank Inc. (no S-1, no 10-K). Cross-confirmed with Sacra Grafana profile and Tracxn 2026 (latest disclosed liquidity event = Series D ext + reported Series E, no IPO announcement). Source.type='other' per Crunchbase precedent."
+      }
+    ]
+  },
+  "license": {
+    "primary_current": "AGPL-3.0",
+    "primary_first": "Apache-2.0",
+    "license_history": [
+      {
+        "from_license": "Apache-2.0",
+        "to_license": "AGPL-3.0",
+        "year": 2021,
+        "month": 4,
+        "rationale_public": "Per Grafana Labs CEO Raj Dutt's 2021-04-20 'Q&A on relicensing' blog post: the relicense was driven by free-rider concerns analogous to those cited by MongoDB (SSPL 2018), Cockroach Labs (BSL 2019), and Sentry (BSL 2019). Cloud providers and competing observability vendors were running unmodified Grafana / Loki / Tempo as managed services without contributing back. AGPL-3.0 was chosen over a source-available license (SSPL, BSL, FSL) explicitly because it is OSI-approved and Free Software, preserving the projects' open-source status while triggering copyleft network distribution obligations on hosted use — forcing managed-service providers to either contribute modifications back or negotiate a separate commercial agreement. The change applied to Grafana, Grafana Loki, and Grafana Tempo simultaneously (Cortex, the precursor of Grafana Mimir, was also AGPL-relicensed); plugins, agents, and certain libraries (e.g., grafana/agent) remained Apache-2.0.",
+        "source_url": "https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/"
+      }
+    ],
+    "dual_license": false,
+    "cla_required": true,
+    "sources": [
+      {
+        "field": "primary_current",
+        "url": "https://github.com/grafana/grafana/blob/main/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Per Grafana's official licensing page (grafana.com/licensing/) and the canonical LICENSE file at github.com/grafana/grafana/blob/main/LICENSE, the current license of Grafana core is AGPL-3.0 (effective 2021-04-20 per the relicensing announcement). PENDING browser validation by Pablo: the LICENSE file should declare 'GNU AFFERO GENERAL PUBLIC LICENSE Version 3' as the title. CONFIDENCE: HIGH on the AGPL-3.0 classification (multiple corroborating sources: grafana.com/licensing, the announcement blog post, InfoQ 2021-04, devclass 2021-04-21, The Register 2021-04-21); MEDIUM until browser validation of the actual LICENSE file artifact (consistent with the Sentry/CockroachDB pre-validation MEDIUM pattern). TODO: Pablo browser-validate the LICENSE file content + record the file size / line count for audit, identical to the Sentry validation workflow."
+      },
+      {
+        "field": "primary_current",
+        "url": "https://grafana.com/licensing/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Labs' official Licensing page (grafana.com/licensing/) is the canonical company-controlled source for the AGPL-3.0 declaration. Independent corroboration of the LICENSE file per METHODOLOGY 3.2. The page explicitly lists Grafana, Loki, and Tempo as AGPL-3.0; plugins/agents as Apache-2.0; commercial products (Grafana Enterprise, Grafana Cloud, Grafana Enterprise Metrics/Logs/Traces) as proprietary licensed."
+      },
+      {
+        "field": "primary_first",
+        "url": "https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana's official relicensing announcement (2021-04-20) explicitly states the projects were 'moving from the Apache License v2.0 to AGPLv3'. Confirms Apache-2.0 as the first published license. Grafana was released January 2014 under Apache-2.0 (per Grafana Wikipedia entry + grafana.com/oss/grafana licensing history). Atlas convention SPDX-canonical short form: 'Apache-2.0'. Per METHODOLOGY 7.7 hierarchy item (1): direct official statement from the company."
+      },
+      {
+        "field": "license_history",
+        "url": "https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Source for the 2021-04-20 Apache-2.0 → AGPL-3.0 transition entry. Grafana's official 'Grafana, Loki, and Tempo will be relicensed to AGPLv3' announcement (Raj Dutt + Grafana Labs team) is the canonical primary source per METHODOLOGY 7.7 hierarchy item (1). NOTE: the exact GitHub commit that physically replaced the LICENSE file in grafana/grafana from Apache-2.0 to AGPL-3.0 was NOT extracted during this Phase 2 data collection — same constraint as Sentry 2023 FSL transition (github.com commits-history HTML pages render dynamically; api.github.com outside cowork-egress allowlist). Per METHODOLOGY 7.8, commit URL is the 'strongest primary source' but acknowledged as ideal-not-required when the company blog is the canonical announcement. TODO post-Free-Preview: extract via local clone (`git -C /path/to/grafana log --follow --oneline LICENSE | head -50`) and add as additional github-license-file entry."
+      },
+      {
+        "field": "license_history",
+        "url": "https://grafana.com/blog/2021/04/20/qa-with-our-ceo-on-relicensing/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Independent rationale source for the 2021-04-20 relicensing. Raj Dutt Q&A blog post explicitly addresses: (a) why AGPL over BSL/SSPL — preserve OSI Free Software status; (b) what changes for end users — nothing for internal-use deployments, only for hosted resale; (c) what changes for cloud vendors — must contribute modifications or negotiate commercial agreement. Per METHODOLOGY 3.2 ≥2 independent sources for high-stakes rationale claims."
+      },
+      {
+        "field": "license_history",
+        "url": "https://www.infoq.com/news/2021/04/grafana-licence-agpl/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-17",
+        "verification_method": "InfoQ piece on the Grafana AGPL transition independently confirms the 2021-04-20 date and the same rationale (free-rider concerns in the open-core observability space). Additional cross-confirmation: devclass.com 2021-04-21, The Register 2021-04-21, BigDATAwire 2021-04-21, Computer Weekly. Five independent tech-press sources converge."
+      },
+      {
+        "field": "dual_license",
+        "url": "https://github.com/grafana/grafana/blob/main/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Current LICENSE file is a single AGPL-3.0 covering grafana/grafana core; no clause offers an alternative concurrent license that the user can elect. Per METHODOLOGY 7.9 strict definition ('same source code offered under two concurrent licenses, with the user choosing which one applies'), dual_license=false. NOTE on multi-component heterogeneity (documented in metadata.notes rather than license_history per Sentry precedent): the core projects (Grafana, Loki, Mimir, Tempo) are AGPL-3.0, but the auxiliary components — Grafana Agent, plugin SDK, certain libraries — remained Apache-2.0 after the 2021 transition. This is multi-product license heterogeneity (an open-core design choice), not dual licensing of the same primary_repo."
+      },
+      {
+        "field": "cla_required",
+        "url": "https://grafana.com/docs/grafana/latest/developers/cla/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Labs official Contributor License Agreement (CLA) documentation page explicitly states: 'Grafana Labs must have a Contributor License Agreement (CLA) on file that has been agreed to by each Contributor, indicating agreement to the license terms below. This agreement is based on the Apache Software Foundation Contributor License Agreement.' Per METHODOLOGY 7.10 hierarchy item (1): out-of-band company legal page found and explicit. cla_required=true CONFIRMED. Cross-confirmed with hierarchy item (2): visible cla-assistant bot integration in repo (cla-assistant.io/check/grafana/grafana URL pattern is canonical per cla-assistant docs). CONFIDENCE: HIGH. The 2021 license transition included a CLA update (to one based on ASF CLA), per the relicensing announcement; this makes the cla_required signal even stronger as Grafana Labs explicitly maintains the CLA infrastructure."
+      },
+      {
+        "field": "cla_required",
+        "url": "https://grafana.com/docs/writers-toolkit/review/cla-assistant/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Writers' Toolkit documentation describes the CLA assistant workflow used to ensure all PR contributors have signed the CLA. Independent corroboration of the developers/cla page per METHODOLOGY 3.2. Methodologically distinct from MongoDB (out-of-band CLA via legal page), CockroachDB (CLA Assistant bot integration), and Sentry (no CLA at all) — Grafana combines both an out-of-band legal page AND a CLA Assistant bot integration."
+      }
+    ]
+  },
+  "commercial_model": {
+    "type": "hybrid",
+    "primary_revenue_stream": "cloud",
+    "sources": [
+      {
+        "field": "type",
+        "url": "https://grafana.com/oss-vs-cloud/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Labs operates three parallel commercial offerings as of 2026-05-17: (1) Grafana OSS (AGPL-3.0, free self-hosted indefinitely); (2) Grafana Enterprise (proprietary self-hosted, sold per-user with annual contracts, USD 25K-150K typical per costbench.com 2026, with negotiated per-user fees in the USD 50-150/user/year range); (3) Grafana Cloud (managed SaaS with Free + Pro + Advanced tiers, USD 19/mo base + usage). All three streams generate meaningful revenue per Contrary Research and Sacra. Per METHODOLOGY 2.1, this places Grafana cleanly into 'hybrid' — the schema controlled-vocabularies.yaml explicitly lists Grafana as a canonical example of the hybrid enum (alongside MongoDB and Sentry). CONFIDENCE: HIGH for the classification (canonical example); MEDIUM for the relative revenue split between Enterprise self-hosted vs Cloud SaaS (no company-disclosed breakdown)."
+      },
+      {
+        "field": "type",
+        "url": "https://research.contrary.com/company/grafana",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Contrary Research Grafana Labs Business Breakdown independently characterizes the company as 'pursuing a multi-product hybrid commercial model' combining OSS adoption funnel + Enterprise self-hosted + managed Cloud SaaS. Per METHODOLOGY 3.2 ≥2 independent sources for high-stakes commercial model claim. Source.type='other' per Contrary/Sacra/Crunchbase precedent."
+      },
+      {
+        "field": "primary_revenue_stream",
+        "url": "https://grafana.com/press/2024/08/21/grafana-labs-soars-past-250m-arr-and-5000-customers-completes-270m-primary-and-secondary-transaction-and-named-a-leader-in-the-gartner-magic-quadrant-for-observability-platforms/",
+        "type": "press-release",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Official Grafana Labs press release (2024-08-21) states 'Grafana Cloud, the company's fully managed open and composable observability stack, is the primary growth engine' and reports >5,000 customers with USD 250M ARR run-rate. The press release positions Grafana Cloud growth as the primary commercial narrative. Per METHODOLOGY 7.7 hierarchy item (1): direct official statement from the company. primary_revenue_stream='cloud'. CONFIDENCE: MEDIUM — Grafana Labs has not publicly disclosed a precise revenue split between Cloud vs Enterprise self-hosted, but Cloud is consistently positioned as the primary growth and growth-narrative engine. Cross-confirmed by The Information's 2025 reporting that ARR grew from USD 250M (Aug 2024) to USD 400M+ (Sep 2025), with Grafana attributing growth to Cloud adoption."
+      },
+      {
+        "field": "primary_revenue_stream",
+        "url": "https://research.contrary.com/company/grafana",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Contrary Research independently characterizes Grafana Cloud as the company's primary growth driver, with the typical customer journey described as starting on Grafana OSS, evaluating via Grafana Cloud Free tier, then converting to Pro/Advanced Cloud subscriptions. Enterprise self-hosted remains material but skews toward large enterprise/regulated customers. Independent corroboration per METHODOLOGY 3.2."
+      }
+    ]
+  },
+  "pricing": {
+    "free_tier_exists": true,
+    "free_tier_notes": "Two structurally distinct free tiers exist as of 2026-05-17: (1) Grafana Cloud Free: USD 0/month, 10,000 metrics series, 50GB of logs, 50GB of traces, 14-day retention, up to 3 active users (per grafana.com/pricing/ 2026). Designed for individuals, small projects, and evaluation. (2) Self-hosted Grafana OSS under AGPL-3.0: free indefinitely for any deployment of any size, subject to AGPL copyleft network-distribution obligations. The same applies to Loki (logs), Mimir (metrics), and Tempo (traces) — all AGPL-3.0 OSS with no revenue or seat caps. Materially distinct from Sentry self-hosted FSL (which has the Permitted Purpose / Competing Use restriction) and from CockroachDB CSL (which has the USD 10M revenue gate + mandatory telemetry + License Key requirement). Grafana's AGPL-3.0 path is the most permissive 'free indefinitely' configuration of the three observability records in the Atlas so far.",
+    "self_hosted_free_indefinite": true,
+    "self_hosted_restrictions": "Grafana OSS under AGPL-3.0 (license file at github.com/grafana/grafana/blob/main/LICENSE) is free indefinitely with the following AGPL copyleft obligations: (a) any modifications made and distributed must be released under AGPL-3.0; (b) when the modified Grafana is run as a network-accessible service (managed hosting, internal SaaS, etc.), users of that service have the right to receive the corresponding source code per AGPL §13. (c) NO License Key required (distinct from CockroachDB CSL). (d) NO mandatory telemetry (distinct from CockroachDB CSL). (e) NO revenue threshold or seat cap (distinct from CockroachDB CSL and Sentry FSL Competing Use). (f) Internal-use only deployments at any company size are unrestricted. (g) For commercial managed-service providers wanting to offer Grafana as a hosted service without AGPL obligations, Grafana Labs offers a commercial license (Grafana Enterprise) — this is the intended monetization vector of the 2021 AGPL relicensing. Loki / Mimir / Tempo follow identical AGPL-3.0 terms. AGPL-3.0 is OSI-approved and Free Software per FSF/OSI — distinct from source-available licenses (FSL, BSL, CSL, SSPL) which are not.",
+    "cloud_entry_price_usd_month": 19.0,
+    "pricing_model": "hybrid",
+    "enterprise_min_declared_usd": null,
+    "self_serve_ceiling_usd": null,
+    "currency": "USD",
+    "pricing_page_url": "https://grafana.com/pricing/",
+    "wayback_snapshots": [],
+    "sources": [
+      {
+        "field": "free_tier_exists",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana pricing page lists Grafana Cloud Free as 'Free Forever — Get started with no credit card required'. The free tier includes 10K metrics series, 50GB of logs, 50GB of traces, 14-day retention, up to 3 active users (per multiple aggregator confirmations: cloudzero.com 2026, costbench.com 2026, vendr.com 2026). Cross-confirmed with grafana.com/grafana/free pricing page section. NOTE: pricing-page direct browser validation by Pablo is recommended pre-Phase-7 (analog to Sentry pattern)."
+      },
+      {
+        "field": "free_tier_exists",
+        "url": "https://github.com/grafana/grafana/blob/main/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Self-hosted Grafana OSS under AGPL-3.0 is free indefinitely for any deployment with no revenue threshold. This is a second, structurally distinct free option from the Cloud Free SaaS tier. Per Atlas convention (MongoDB / CockroachDB / Sentry precedent), free_tier_notes documents both."
+      },
+      {
+        "field": "self_hosted_free_indefinite",
+        "url": "https://grafana.com/licensing/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Labs official Licensing page confirms Grafana OSS (along with Loki, Mimir, Tempo) is AGPL-3.0 with no commercial gate, no seat cap, no revenue threshold. self_hosted_free_indefinite=true is correct. The AGPL copyleft network-distribution clause is documented in self_hosted_restrictions."
+      },
+      {
+        "field": "cloud_entry_price_usd_month",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana pricing page lists Grafana Cloud Pro as 'starting at $19/month' platform fee, plus usage-based charges for metrics (USD 6.50 per 1K billable series), logs (USD 0.50 per GB), traces (same per-GB), and additional active users (USD 8/user/month beyond included). Per METHODOLOGY 7.17, cloud_entry_price_usd_month captures the lowest fixed-price paid GA cloud tier. Atlas convention: capture the published Pro platform fee USD 19/mo as the entry price; the multi-dimensional usage structure is documented in pricing_model='hybrid' and in metadata.notes. CONFIDENCE: MEDIUM pending browser validation by Pablo. The USD 19/mo figure is corroborated across cloudzero.com 2026, costbench.com 2026, vendr.com 2026, omr.com 2026. NO PREVIEW exclusions apply (Pro is GA). Cross-record observation: cloud_entry_price_usd_month USD 19 (Grafana) vs USD 26 (Sentry Team annual) vs USD 58.40 (MongoDB Atlas M10 Dedicated) vs USD 438 (CockroachDB Advanced) — Grafana has the lowest entry-price commercial cloud tier of the four records collected, consistent with Grafana's open-core / wide-adoption funnel strategy."
+      },
+      {
+        "field": "cloud_entry_price_usd_month",
+        "url": "https://www.cloudzero.com/blog/grafana-cloud-pricing/",
+        "type": "tech-press",
+        "accessed_date": "2026-05-17",
+        "verification_method": "CloudZero 2026 Grafana Cloud pricing breakdown independently confirms Pro tier starts at USD 19/month platform fee, with the multi-axis usage components (per-series, per-GB, per-user). Cross-confirmation per METHODOLOGY 3.2. Additional triangulation: costbench.com 2026 ('Grafana Pricing 2026: $19-$19/month (base) + usage'), vendr.com 2026 Grafana marketplace listing, comparestacks.com Grafana Cloud pricing analysis."
+      },
+      {
+        "field": "pricing_model",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Cloud Pro pricing combines multiple obligatory billing dimensions: (1) platform base fee USD 19/mo (plan tier dimension); (2) metrics usage USD 6.50 per 1K billable active series; (3) logs USD 0.50/GB write + retention; (4) traces same per-GB structure; (5) active users USD 8/user/month beyond included quota. Multi-dimensional canonical pricing → 'hybrid' enum per METHODOLOGY 7.11 (≥2 mandatory recurring dimensions in canonical bill structure). Cross-record observation: all 4 records in Atlas so far (MongoDB, CockroachDB, Sentry, Grafana) have pricing_model='hybrid' — the OSS-with-Cloud-SaaS pattern naturally produces multi-dimensional billing. This may emerge as a pattern worth tracking at N=10+."
+      },
+      {
+        "field": "enterprise_min_declared_usd",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Enterprise tier on the pricing page is sales-led ('Contact us' UI pattern). No public per-seat or per-event minimum disclosed for Enterprise self-hosted on grafana.com/pricing. Third-party aggregators (costbench.com 2026, vendr.com 2026) estimate USD 25K-150K/year typical range with USD 50-150 per user per year — but these are negotiated figures, not published minimums. Set to null per Atlas convention; sales-led pricing for Enterprise self-hosted is common in observability category (Datadog Enterprise, New Relic Enterprise follow same pattern)."
+      },
+      {
+        "field": "self_serve_ceiling_usd",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Cloud self-serve range spans Free (USD 0/mo) through Advanced (custom contract with annual commit, sales-led). Pro is the highest tier purchasable without sales contact. The actual ceiling for a Pro customer depends on metrics series, log/trace GB consumed, and active user count — could reach multi-thousands per month via usage. Set to null and documented in metadata.notes per Atlas convention (usage-based ceiling not a single fixed-price figure)."
+      }
+    ]
+  },
+  "feature_gating": {
+    "sso_saml": "commercial",
+    "rbac_fine_grained": "commercial",
+    "audit_logs": "commercial",
+    "sla_support_tier": "commercial",
+    "multi_region_ha": "oss",
+    "white_label": "na",
+    "advanced_analytics": "partial",
+    "api_rate_limits": "na",
+    "notes": "Grafana observability gates the canonical commercial governance bundle (SSO/SAML/OAuth/LDAP, fine-grained RBAC with team sync and custom roles, audit logs, tiered SLA support) behind a commercial Enterprise tier — consistent with MongoDB, CockroachDB, and Sentry precedent. multi_region_ha is OSS (NOT commercial): Grafana's core observability stack — Grafana, Loki (logs), Mimir (metrics), Tempo (traces) — are all AGPL-3.0 with built-in multi-tenancy and horizontally scalable HA architecture (Mimir explicitly markets 'highly available, multi-tenant, scales to 1 billion active series and beyond'). Self-hosted deployments have unrestricted multi-region freedom. Grafana Cloud regions span AWS/Azure/GCP across multiple regions, also democratized across tiers. This MATCHES Sentry's multi_region_ha=oss pattern; at N=2 within observability, this is a TENTATIVE category-consistent signal — to be tested as the observability sample grows (next observability record + cross-category counter-test). Per the post-Sentry decision of 2026-05-09 (sample-size tagged hypotheses) and the epistemological wording discipline of 2026-05-17, this is NOT a confirmed pattern. white_label='na' because Grafana is a developer-first dashboard platform, not OEM-embeddable observability primitive. api_rate_limits='na' because Grafana exposes API rate limits as service-stability mechanism, not as tier-marketed feature gate. advanced_analytics='partial' because basic dashboards / data sources / alerting are OSS, but premium plugins (data source integrations to enterprise systems like Splunk, ServiceNow, Snowflake), advanced reporting (PDF generation, scheduled email reports), and AI-powered features (Grafana AI Observability, anomaly detection) are Enterprise/Cloud-Advanced gated.",
+    "sources": [
+      {
+        "field": "sso_saml",
+        "url": "https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-authentication/saml/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana official SAML authentication documentation page explicitly states: 'SAML authentication integration is available in Grafana Enterprise and Grafana Cloud Pro and Advanced.' Grafana OSS does not include SAML; OSS supports OAuth (Google, GitHub, Azure AD basic), but enterprise-grade SAML, LDAP team sync, and complex SSO orchestration are Enterprise-tier features. Atlas value 'commercial' applied: SSO/SAML at Enterprise+/Cloud Pro+. Cross-confirmed by grafana.com/oss-vs-cloud comparison table and costbench.com 2026 Enterprise feature analysis. CONFIDENCE: HIGH (multiple sources converge on Enterprise gating)."
+      },
+      {
+        "field": "rbac_fine_grained",
+        "url": "https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/access-control/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana official Role-Based Access Control documentation confirms tiered structure: basic role assignments (Admin, Editor, Viewer at organization level) available in Grafana OSS; fine-grained RBAC (custom roles, granular permissions per folder/dashboard/data source, team-based access control with directory sync) gated to Grafana Enterprise + Grafana Cloud Pro/Advanced. Per MongoDB/CockroachDB/Sentry precedent, rbac_fine_grained='commercial' when fine-grained capability is tier-gated even if basic RBAC is OSS. Cross-record consistency: all 4 records in Atlas (MongoDB, CockroachDB, Sentry, Grafana) classify rbac_fine_grained='commercial'."
+      },
+      {
+        "field": "audit_logs",
+        "url": "https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/audit-grafana/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana audit logging documentation explicitly states: 'Auditing is only available in Grafana Enterprise.' Grafana Cloud Advanced also includes audit log capability (per grafana.com/pricing/ feature matrix). Atlas value 'commercial' applied. Cross-record consistency: all 4 records audit_logs='commercial'."
+      },
+      {
+        "field": "sla_support_tier",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana support offerings are tiered to commercial relationship: (a) Grafana OSS = community support (GitHub issues, community Slack, forums; no SLA); (b) Grafana Cloud Free = community support; (c) Grafana Cloud Pro = standard support during business hours; (d) Grafana Cloud Advanced + Grafana Enterprise = 24x7x365 premium support with named technical account manager and custom SLA terms negotiated per contract. Per Atlas convention, sla_support_tier='commercial'. NOTE: Grafana does NOT publish explicit uptime-SLA percentages per tier on the public pricing page (no '99.9% Pro / 99.99% Advanced' style numbers found via WebSearch 2026-05-17); SLA structure is presented qualitatively. This is consistent with Sentry pattern (no public uptime SLA percentage) and contrasts with CockroachDB Cloud (publishes explicit 99.99% / 99.999% by tier)."
+      },
+      {
+        "field": "multi_region_ha",
+        "url": "https://grafana.com/oss/mimir/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Mimir official OSS page describes the project as 'horizontally scalable, highly available, multi-tenant time series database for Prometheus metrics... scales to 1 billion active series and beyond'. Mimir is AGPL-3.0 OSS with no commercial gate on HA, multi-tenancy, or scale. The same architecture applies to Loki (logs) and Tempo (traces). For Grafana itself, HA is supported via session-affinity / sticky load balancing + shared backend database — also OSS. CRITICAL ATLAS DECISION: per METHODOLOGY 7.x and the methodological note developed during Sentry collection 2026-05-09, multi_region_ha in observability records measures data residency / regional ingestion / HA architecture availability, NOT cluster cross-region survival goals (the database-specific semantic). Grafana's observability stack — by virtue of the 2021 AGPL relicensing decision — placed all HA/scale capabilities in the OSS layer, monetizing instead on governance (SSO/RBAC/audit) and enterprise data source plugins. Atlas value 'oss' applied: HA and multi-region deployment are democratized across OSS and across all Cloud tiers. CONFIDENCE: HIGH for the gating fact (Mimir/Loki/Tempo all explicitly AGPL with HA in their OSS documentation); HIGH for the methodological decision (consistent with Sentry precedent + documented here). CROSS-RECORD SIGNAL: matches Sentry multi_region_ha=oss. At N=2 within observability category, this is a TENTATIVE category-consistent pattern — explicitly framed as preliminary, not confirmed, per epistemological wording discipline (memory feedback_epistemological_wording_discipline.md, 2026-05-17). Will test as Atlas observability sample grows."
+      },
+      {
+        "field": "multi_region_ha",
+        "url": "https://grafana.com/oss/loki/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana Loki official OSS page confirms 'horizontally scalable, highly available, multi-tenant log aggregation system'. Independent corroboration of the Mimir OSS HA pattern. Same applies to Grafana Tempo (grafana.com/oss/tempo). Triangulated across three Grafana core observability projects: all AGPL-3.0 OSS with HA built in."
+      },
+      {
+        "field": "white_label",
+        "url": "https://grafana.com/pricing/",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana is a developer/SRE-facing observability and dashboard platform, not an OEM-embeddable primitive that customers rebrand. White-label / OEM rebranding is not a user-facing product feature available through tier selection. NOTE: Grafana DOES support 'white-labeling' via Enterprise's custom branding feature (logos, colors, footer customization for internal-facing portals) — but this is cosmetic theming of internal Grafana, not OEM embedding of Grafana in third-party products for resale. Marked 'na' (not applicable to product type), consistent with MongoDB/CockroachDB/Sentry precedent. Documented in metadata.notes for completeness."
+      },
+      {
+        "field": "advanced_analytics",
+        "url": "https://grafana.com/grafana/plugins/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana analytics surface tiers as follows: (a) basic dashboards, alerting, common open-source data sources (Prometheus, Loki, InfluxDB, PostgreSQL, MySQL, etc.) — available in Grafana OSS; (b) premium data source plugins (Splunk, ServiceNow, Snowflake, Dynatrace, Datadog, AWS X-Ray, Oracle, MongoDB Atlas Enterprise integrations), reporting features (scheduled PDF reports, white-labeled email distribution), advanced alerting workflows, Grafana AI Observability (anomaly detection, AI-assisted incident response) — gated to Grafana Enterprise / Grafana Cloud Pro+/Advanced. Atlas value 'partial' applied: basic analytics in OSS, premium analytics commercial-tier-gated. Consistent with MongoDB/CockroachDB/Sentry precedent on advanced_analytics='partial'. Cross-record consistency across all 4 verified/in-progress records."
+      },
+      {
+        "field": "api_rate_limits",
+        "url": "https://grafana.com/docs/grafana/latest/developers/http_api/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana exposes an HTTP API for programmatic interaction (dashboard management, organization administration, data source CRUD, alerting rules). API rate limits exist as service-stability protection on Grafana Cloud, not as a marketed tier feature ('1k req/sec on Free vs unlimited on Enterprise' framing not present). Marked 'na' (not applicable to product positioning), consistent with MongoDB/CockroachDB/Sentry precedent."
+      }
+    ]
+  },
+  "github": {
+    "primary_repo_url": "https://github.com/grafana/grafana",
+    "snapshot_date": "2026-05-17",
+    "stars": 70500,
+    "contributors_total": null,
+    "contributors_l12m": null,
+    "commits_l12m": null,
+    "releases_l12m": null,
+    "latest_release_date": null,
+    "latest_release_version": null
+  },
+  "strategic_signals": {
+    "license_changes_l24m": [],
+    "funding_rounds_l24m": [
+      {
+        "date": "2024-08-21",
+        "round_type": "Series D extension",
+        "amount_usd": 270000000,
+        "lead_investor": "Lightspeed Venture Partners",
+        "source_url": "https://grafana.com/press/2024/08/21/grafana-labs-soars-past-250m-arr-and-5000-customers-completes-270m-primary-and-secondary-transaction-and-named-a-leader-in-the-gartner-magic-quadrant-for-observability-platforms/"
+      }
+    ],
+    "notable_customers": [
+      "Anthropic",
+      "Bloomberg",
+      "NVIDIA",
+      "Microsoft",
+      "Salesforce",
+      "eBay",
+      "PayPal",
+      "JP Morgan",
+      "Booking.com",
+      "Wix"
+    ],
+    "pricing_changes_l24m": "No material restructuring of Grafana Cloud Free / Pro / Advanced tiers identified within L24M window (cutoff 2024-05-17 → 2026-05-17). The Pro platform fee has remained at USD 19/mo and the published per-series / per-GB / per-user rates have not seen widely reported step changes. Wayback Machine snapshots of grafana.com/pricing across L24M were not captured during this data collection. TODO post-Free-Preview: Pablo browser-validate grafana.com/pricing and trigger a Wayback save (analog to Sentry TODO). NOTE: Grafana Cloud has periodically adjusted included quotas (free tier metrics series limit was raised from 10K to current levels at some point in the L24M window per community references) but no major price-floor changes have been disclosed publicly.",
+    "sources": [
+      {
+        "field": "license_changes_l24m",
+        "url": "https://grafana.com/blog/2021/04/20/grafana-loki-tempo-relicensing-to-agplv3/",
+        "type": "company-website",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Grafana's most recent license change (Apache-2.0 → AGPL-3.0) occurred 2021-04-20, outside the L24M window (cutoff 2024-05-17). No additional license changes identified between 2024-05-17 and 2026-05-17 across grafana.com/blog, grafana.com/press, primary GitHub LICENSE file blame history (via WebSearch), or tech-press. license_changes_l24m: []. The defining license event for Grafana sits ~32 months before the L24M cutoff — analogous to Sentry's pattern (FSL adoption 2023-11-20 was ~6 months before its L24M cutoff). Per Atlas convention, defining events outside L24M are NOT captured in the strategic_signals array but ARE captured in license.license_history."
+      },
+      {
+        "field": "funding_rounds_l24m",
+        "url": "https://grafana.com/press/2024/08/21/grafana-labs-soars-past-250m-arr-and-5000-customers-completes-270m-primary-and-secondary-transaction-and-named-a-leader-in-the-gartner-magic-quadrant-for-observability-platforms/",
+        "type": "press-release",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Official Grafana Labs press release for the 2024-08-21 Series D extension. Per METHODOLOGY 7.16, funding_rounds_l24m captures private funding rounds (Series D ext qualifies). The reported Series E Feb/Mar 2026 USD 250M at USD 9B is NOT captured here pending official Grafana press release confirmation (per the methodological caveat in identity.funding_stage source). TODO: capture Series E entry once official confirmation locatable. If the Series E did close and is later confirmed, funding_rounds_l24m would gain a 2026-02-25 (or 2026-03-12) USD 250M Series E entry led by GIC."
+      },
+      {
+        "field": "notable_customers",
+        "url": "https://grafana.com/press/2025/09/30/grafana-labs-surpasses-400m-arr-and-7000-customers-gains-new-investors-to-accelerate-global-expansion/",
+        "type": "press-release",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Official Grafana Labs press release (2025-09-30) explicitly names 'Anthropic, Bloomberg, NVIDIA, Microsoft, and Salesforce' as customers, along with the milestone claim of 7,000+ customers and USD 400M+ ARR. Per the live-page-overrides-stale-PR rule (feedback memory feedback_live_page_overrides_stale_pr.md, 2026-05-09): the 2025-09-30 press release is the most recent company-confirmed customer logo list available. Atlas captures these 5 from the 2025 press release, plus 5 additional logos (eBay, PayPal, JP Morgan, Booking.com, Wix) from prior contemporaneous tech-press (April 2023 reporting cited by Contrary Research, BigDATAwire, TechCrunch coverage of the 2022 Series D) — these 5 secondary logos are kept as historical customer references but lower confidence per the live-page rule. Schema maxItems cap = 10, met exactly. Pending: Pablo browser-validation of grafana.com/customers live page to identify the canonical 2026 customer wall; any logos there that contradict this list should win per the live-page rule. CONFIDENCE: HIGH for the 5 Sep 2025 press release logos; MEDIUM for the 5 historical secondary logos pending live-page check."
+      },
+      {
+        "field": "notable_customers",
+        "url": "https://research.contrary.com/company/grafana",
+        "type": "other",
+        "accessed_date": "2026-05-17",
+        "verification_method": "Contrary Research Business Breakdown independently cites multiple historical Grafana customers including PayPal, Salesforce, Booking.com, Bloomberg, Unity, Olo, eBay, Wix, and J.P. Morgan from April 2023 reporting. Cross-corroboration of the historical logo set per METHODOLOGY 3.2."
+      }
+    ]
+  },
+  "metadata": {
+    "verification_status": "unverified",
+    "notes": "RECORD STATUS: DRAFT IN-PROGRESS, NOT INCORPORATED TO ATLAS CANON. Phase 1-7 data collection completed in single session 2026-05-17 (NOT phase-by-phase per Sentry precedent; this is a deliberate deviation from the granular-commit pattern, accepted because the file is now complete-but-not-validated rather than progressively constructed). Phase 6 (GitHub velocity) is partially populated: stars=70500 captured via WebSearch (CONFIDENCE: MEDIUM, exact number pending Pablo running ./scripts/github_stats.sh grafana/grafana with authenticated gh CLI). contributors_total / contributors_l12m / commits_l12m / releases_l12m / latest_release_date / latest_release_version all set to null pending Phase 6 completion via the github_stats.sh script. Per METHODOLOGY 7.14 (exhaustive tag scan), 7.15 (contributors API cap at 100), and 7.20 (commits_l12m is canonical dev-activity metric), Phase 6 cannot be reliably synthesized via WebSearch alone — requires gh CLI access. Day-2 sanity (per Atlas DoD) NOT yet performed; flip to status=verified blocked until Day-2 fresh-eye review ≥24h after this data_collection_date. KEY METHODOLOGICAL DECISIONS made during this session: (1) **OFFICIALLY-CONFIRMED-VS-MARKET-REPORTED FUNDING RULE** (provisional METHODOLOGY amendment candidate, name TBD post-Free-Preview): funding_stage='series-d' is captured as the latest OFFICIALLY CONFIRMED round (Series D extension Aug 2024 with grafana.com/press release + TechCrunch + Cooley coverage), NOT as the latest known market-reported event. Multiple secondary sources (Tracxn 2026, SiliconANGLE 2026-02-13, The Information, LinkedIn post Dec 2025) report a Series E USD 250M at USD 9B closed Feb/Mar 2026, lead GIC — NO official Grafana Labs press release for the Series E was locatable on grafana.com/press as of data_collection_date 2026-05-17. Atlas convention here is explicit: when official primary source is absent, the field reflects the last officially-confirmed event, NOT a synthesis of secondary-source convergence — regardless of how many secondary sources agree. A future reader noting the gap ('but there was a Series E reported in 2026') is correct: Atlas acknowledges the gap and captures it as TODO rather than as a fact. (2) total_raised_usd captured at USD 1.09B (pre-Series E Tracxn/Crunchbase aggregate); would upgrade to ~USD 1.34B if Series E is confirmed. (3) last_valuation_usd captured at USD 6,000,000,000 (Series D ext confirmed USD 6B); would upgrade to USD 9B if Series E confirmed. (4) primary_revenue_stream='cloud' captured per company-stated growth-engine narrative + Contrary Research; CONFIDENCE MEDIUM due to absence of public revenue split disclosure. (5) multi_region_ha='oss' captured per Mimir/Loki/Tempo AGPL OSS HA architecture; this MATCHES Sentry's multi_region_ha=oss pattern. At N=2 within observability category, this is a TENTATIVE category-consistent signal — explicitly framed as preliminary per epistemological wording discipline (memory feedback_epistemological_wording_discipline.md, 2026-05-17), NOT a confirmed pattern. Will test as observability sample grows beyond N=2. (6) cla_required=true CONFIRMED via grafana.com/docs/grafana/latest/developers/cla/ official page + cla-assistant.io integration — Grafana is the third record with cla_required=true (MongoDB, CockroachDB also true; Sentry false). (7) Multi-component license heterogeneity (core AGPL vs plugins/agents Apache) noted in license.dual_license source but NOT classified as dual_license=true per METHODOLOGY 7.9 strict definition — analogous resolution to Sentry's SDK/server license heterogeneity. (8) cloud_entry_price_usd_month=19 captured per Cloud Pro platform fee, with the multi-axis usage structure documented in pricing.pricing_model='hybrid'. OPEN TODOs (pending hygiene, do not block Day-2 sanity): (a) Pablo browser-validate LICENSE file at github.com/grafana/grafana/blob/main/LICENSE (analog to Sentry pattern, upgrades MEDIUM → HIGH). (b) Pablo browser-validate grafana.com/pricing and trigger Wayback save https://web.archive.org/save/https://grafana.com/pricing/. (c) Pablo browser-validate grafana.com/customers live page (live-page-overrides-stale-PR rule). (d) Run ./scripts/github_stats.sh grafana/grafana for Phase 6 population. (e) Locate official Grafana Labs press release for the reported Series E Feb/Mar 2026 USD 250M at USD 9B; if confirmed, upgrade funding_stage='series-e-plus', total_raised_usd=1340000000, last_valuation_usd=9000000000, add funding_rounds_l24m entry. (f) Extract commit hash for 2021-04-20 Apache→AGPL transition via local clone of grafana/grafana (same TODO pattern as Sentry FSL 2023 and CockroachDB BSL 2019)."
+  }
 }
