@@ -2,7 +2,186 @@
   "schema_version": "1.0",
   "id": "posthog",
   "name": "PostHog",
-  "category": "observability",
-  "status": "pending",
-  "data_collection_date": null
+  "category": "analytics-bi",
+  "status": "in-progress",
+  "data_collection_date": "2026-05-23",
+  "identity": {
+    "founded_year": 2020,
+    "hq_country": "US",
+    "hq_city": "San Francisco",
+    "funding_stage": "series-e-plus",
+    "total_raised_usd": 194000000,
+    "last_valuation_usd": 1400000000,
+    "is_public": false,
+    "ticker": null,
+    "sources": [
+      {
+        "field": "founded_year",
+        "url": "https://www.ycombinator.com/companies/posthog",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "Y Combinator company profile lists PostHog (YC W20 batch), founded 2020 by James Hawkins and Tim Glaser. Cross-confirmed with Crunchbase organization page and PrivCo (PostHog, Inc. founded 2020). CONFIDENCE: HIGH for founding year; PENDING browser-validation of posthog.com/about for primary-source confirmation per METHODOLOGY 7.1."
+      },
+      {
+        "field": "hq_country",
+        "url": "https://system.privco.com/company/posthog",
+        "type": "other",
+        "accessed_date": "2026-05-23",
+        "verification_method": "PrivCo company profile lists PostHog, Inc. HQ at 2261 Market Street Suite 4008, San Francisco, California 94114, US. ISO 3166-1 alpha-2: US. NOTE: PostHog is a remote-first company with no traditional central office; the SF address is the legal/operational anchor. Cross-confirmed with Exa websets directory (San Francisco). Source.type='other' (PrivCo is private-market data provider not in schema enum, analog to Crunchbase/Tracxn handling). CONFIDENCE: MEDIUM — secondary aggregators; PENDING a primary-source HQ confirmation (posthog.com/about or SEC/Delaware filing)."
+      },
+      {
+        "field": "hq_city",
+        "url": "https://system.privco.com/company/posthog",
+        "type": "other",
+        "accessed_date": "2026-05-23",
+        "verification_method": "PrivCo specifies San Francisco, CA. Atlas canonical short form per METHODOLOGY 7.2: 'San Francisco'. Same MEDIUM/remote-first caveat as hq_country."
+      },
+      {
+        "field": "funding_stage",
+        "url": "https://posthog.com/blog/series-e",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "Official PostHog blog post titled '\"E\"xciting news' announcing the USD 75M Series E led by Peak XV Partners at a USD 1.4B valuation (unicorn status), late September 2025. Per the schema enum, Series E maps to 'series-e-plus'. Primary source (company blog) per METHODOLOGY 7.7 hierarchy item (1) — direct official statement. Cross-confirmed: Peak XV Partners X/Twitter announcement (2025-09-30), TheSaaSNews, YourStory. CONFIDENCE: HIGH."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://tracxn.com/d/companies/posthog/__tWY33MozggoGzQ9VYs8-O9tG9o6ZXDONwy37RdpGE_0/funding-and-investors",
+        "type": "other",
+        "accessed_date": "2026-05-23",
+        "verification_method": "Tracxn 2026 PostHog funding profile + summary reporting of USD 194M total raised across 7 rounds since 2020 founding. Manual sanity-check: pre-Series-E total reported ~USD 119M; + USD 75M Series E = USD 194M (consistent). Per METHODOLOGY 7.4 private-company convention. Source.type='other' (Tracxn private-market provider). CONFIDENCE: MEDIUM — secondary convergence; per the officially-confirmed-vs-market-reported funding rule (Grafana precedent), the most recent ROUND (Series E) has a primary source, but the AGGREGATE total relies on secondary convergence."
+      },
+      {
+        "field": "total_raised_usd",
+        "url": "https://wellfound.com/company/posthoghq/funding",
+        "type": "other",
+        "accessed_date": "2026-05-23",
+        "verification_method": "Wellfound (AngelList) PostHog funding page independently lists the round history converging on the ~USD 194M aggregate. Independent corroboration per METHODOLOGY 3.2 (≥2 sources for high-stakes claim). Source.type='other'."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://posthog.com/blog/series-e",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "Official PostHog Series E blog declares the USD 1.4B post-money valuation. Primary source. Cross-confirmed: TheSaaSNews ('PostHog Raises $75M Series E at $1.4B Valuation'), Peak XV Partners announcement, CompWorth, BuiltIn SF. Multiple independent sources converge on USD 1.4B. CONFIDENCE: HIGH."
+      },
+      {
+        "field": "last_valuation_usd",
+        "url": "https://www.thesaasnews.com/news/posthog-raises-75m-series-e-at-1-4b-valuation",
+        "type": "tech-press",
+        "accessed_date": "2026-05-23",
+        "verification_method": "TheSaaSNews independently corroborates the USD 1.4B Series E valuation. Cross-confirmation per METHODOLOGY 3.2."
+      },
+      {
+        "field": "is_public",
+        "url": "https://www.crunchbase.com/organization/posthog",
+        "type": "crunchbase",
+        "accessed_date": "2026-05-23",
+        "verification_method": "Crunchbase PostHog organization profile lists status as private, VC-backed (latest round Series E, Sept 2025). No SEC filings, no ticker. is_public=false. CONFIDENCE: HIGH."
+      }
+    ]
+  },
+  "license": {
+    "primary_current": "MIT",
+    "primary_first": "MIT",
+    "license_history": [],
+    "dual_license": false,
+    "cla_required": false,
+    "sources": [
+      {
+        "field": "primary_current",
+        "url": "https://github.com/PostHog/posthog/blob/master/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-23",
+        "verification_method": "PostHog/posthog primary repo root LICENSE is the MIT (Expat) License, EXCEPT content under the 'ee/' directory which carries a separate proprietary license (see ee/LICENSE source below). Per Atlas convention (Grafana precedent: primary_current = license of the core primary_repo), primary_current='MIT'. CONFIDENCE for the structure: HIGH (multiple sources describe MIT-core + ee/ proprietary). PENDING Pablo browser-validation of the LICENSE file at HEAD (master) to confirm MIT at current HEAD, analog to Sentry/Grafana browser-validation pattern (upgrades MEDIUM→HIGH)."
+      },
+      {
+        "field": "license_history",
+        "url": "https://github.com/PostHog/posthog/blob/master/ee/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-23",
+        "verification_method": "The 'ee/' (enterprise edition) directory carries a separate proprietary license. CRITICAL ATLAS OBSERVATION: this is open-core via directory segregation (permissive MIT core + proprietary ee/ subdirectory), NOT a relicensing of the core. PostHog's core OSS license appears to have NEVER changed from MIT since 2020 founding → primary_first='MIT' = primary_current='MIT', license_history=[]. This would make PostHog the FIRST Atlas record where the core OSS license never changed (MongoDB Apache→SSPL, CockroachDB Apache→BSL→CSL, Sentry BSD→FSL, Grafana Apache→AGPL all relicensed their cores). PostHog additionally maintains a 'posthog-foss' repository purged of all proprietary code (100% FOSS). PENDING Pablo browser-validation: (a) confirm ee/LICENSE proprietary text + canonical name at HEAD; (b) Wayback-check the root LICENSE across 2020-2022-2024 to confirm the core was always MIT (no quiet relicense). CONFIDENCE: MEDIUM pending the Wayback license-history check."
+      },
+      {
+        "field": "dual_license",
+        "url": "https://github.com/PostHog/posthog/blob/master/LICENSE",
+        "type": "github-license-file",
+        "accessed_date": "2026-05-23",
+        "verification_method": "dual_license=false per METHODOLOGY 7.9 strict definition (same source code offered under two concurrent user-selectable licenses). PostHog is NOT dual-license: the MIT core and the proprietary ee/ are DIFFERENT code in DIFFERENT directories — directory-segregated open-core, not the same code under two licenses. It is also NOT 'tiered source-available' (BSL/FSL/SSPL/CSL): the core is genuinely OSI-approved MIT, not a source-available license. Analogous in resolution to Grafana's core-vs-plugins and Sentry's server-vs-SDK license heterogeneity (documented, but dual_license=false)."
+      },
+      {
+        "field": "cla_required",
+        "url": "https://posthog.com/docs/contribute",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "cla_required=false PROVISIONAL / LOW CONFIDENCE. WebSearch did not surface a CLA requirement on posthog.com/docs/contribute or in the repo, and PostHog's documented contribution posture historically favors low-friction contribution without a CLA. HOWEVER this could not be confirmed to vara-alta from this environment. PENDING Pablo browser-validation: check posthog.com/docs/contribute and look for a cla-assistant bot check on a recent PostHog/posthog PR. Do NOT treat as fact until validated; this is a required schema field filled with best-available evidence per draft convention."
+      }
+    ]
+  },
+  "commercial_model": {
+    "type": "saas-with-oss-marketing",
+    "primary_revenue_stream": "cloud",
+    "sources": [
+      {
+        "field": "type",
+        "url": "https://posthog.com/docs/self-host",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "type='saas-with-oss-marketing' per METHODOLOGY disambiguation rule (the load-bearing test: can a serious user run this in production and receive a first-class experience?). The evidence points consistently to NO: (a) self-host Kubernetes/scalable deployment deprecated and no longer supported; (b) only a 'hobby' Docker Compose build remains; (c) self-host explicitly 'not recommended' for scale; (d) new features ship Cloud-first; (e) commercial support is not centered on self-host; (f) product narrative oriented to PostHog Cloud. This moves the business center of gravity to SaaS even though the core code remains MIT. CRITICAL: this classification is NOT because the OSS is fake — the opposite. PostHog's MIT core is probably the most genuinely-open OSS in the Atlas so far. The classification is about operational reality, not license posture. It is NOT 'hosted-first' (Supabase / Cal.com / Plausible have genuinely production-grade self-host; PostHog deprecated its production self-host). CONFIDENCE: HIGH for the classification; the underlying self-host facts are PENDING Pablo browser-validation of posthog.com/docs/self-host + disclaimer (upgrades the supporting evidence MEDIUM→HIGH)."
+      },
+      {
+        "field": "primary_revenue_stream",
+        "url": "https://posthog.com/pricing",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "primary_revenue_stream='cloud'. PostHog Cloud is the recommended and operationally-encouraged option; all paid features and new features are Cloud-only; self-hosted is unsupported and not monetized as a material enterprise self-host product (contrast Grafana/MongoDB which sell self-hosted Enterprise licenses). Enterprise self-hosted is not a material revenue stream. CONFIDENCE: HIGH directionally; PostHog has not published a revenue-stream split (no public breakdown), but the Cloud-first posture is unambiguous from product + pricing + self-host docs."
+      }
+    ]
+  },
+  "pricing": {
+    "free_tier_exists": true,
+    "free_tier_notes": "PostHog Cloud has a generous monthly-resetting free tier with no credit card required (browser-validation by Pablo recommended). Reported free monthly allotments per product (per posthog.com/pricing + 2026 aggregators userorbit/checkthat/usercall): 1M product analytics events, 5K session recordings (web), 1M feature flag requests, 1,500 survey responses, 100K error-tracking exceptions, 50GB logs, 2K PostHog AI credits (~USD 20 value). Allotments reset monthly. Separately, the MIT-licensed core can be self-hosted free indefinitely (hobby/unsupported — see self_hosted_restrictions). CONFIDENCE: HIGH that a generous free tier exists; MEDIUM on the exact per-product numbers pending browser-validation.",
+    "self_hosted_free_indefinite": true,
+    "self_hosted_restrictions": "The MIT-licensed PostHog core can be self-hosted free indefinitely, BUT PostHog has operationally deprecated production self-hosting. Per posthog.com/docs/self-host + the open-source self-host disclaimer (browser-validation recommended): (a) new Kubernetes/scalable deployments are NO LONGER SUPPORTED; only a 'hobby' Docker Compose build remains; (b) self-hosting is explicitly 'not recommended' — requires significant infra expertise, manual updates, does not scale; (c) NO commercial support for self-hosted; (d) paid/enterprise features (ee/ directory) require a PostHog license and are not in the free self-host; (e) new features ship Cloud-only and self-hosted deployments miss continuous improvements. This is the operational core of the PostHog record: the OSS is genuinely MIT and free, but PostHog has migrated to a Cloud-first commercial posture — distinct from Grafana (whose AGPL OSS IS production-grade self-hostable at any scale, 'Mimir scales to 1B series').",
+    "cloud_entry_price_usd_month": null,
+    "pricing_model": "usage",
+    "enterprise_min_declared_usd": null,
+    "self_serve_ceiling_usd": null,
+    "currency": "USD",
+    "pricing_page_url": "https://posthog.com/pricing",
+    "wayback_snapshots": [],
+    "sources": [
+      {
+        "field": "pricing_model",
+        "url": "https://posthog.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-23",
+        "verification_method": "pricing_model='usage' per METHODOLOGY 7.11. PostHog's canonical self-serve bill is pure metered consumption per product (product analytics per-event with volume step-downs USD 0.000050→0.000009/event; session replay per-recording USD 0.005→0.0015; plus per-unit feature flag requests, survey responses, error exceptions, logs, AI credits). There is NO per-seat fee ('no per-seat tax') and NO fixed platform base fee on pay-as-you-go. Per 7.11, 'pure usage applies when pricing is dominantly metered consumption with no fixed-tier structure (e.g., AWS Lambda per request)'. The multiple product axes are all the SAME dimension TYPE (metered consumption); the 7.11 'hybrid' examples instead MIX dimension types (capacity + usage, e.g. MongoDB cluster + storage + egress). PostHog has no capacity/seat/time-minimum dimension in its canonical bill → 'usage', NOT 'hybrid'. The Enterprise plan adds a time-based subscription base fee (reported ~USD 2,000/mo) but that is a non-canonical enterprise tier, documented in metadata.notes. CONFIDENCE: HIGH on the usage classification; MEDIUM on exact per-unit rates pending browser-validation."
+      },
+      {
+        "field": "cloud_entry_price_usd_month",
+        "url": "https://posthog.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-23",
+        "verification_method": "cloud_entry_price_usd_month=null per METHODOLOGY 7.17. Free tier is excluded (captured via free_tier_exists). PostHog's only paid self-serve option below Enterprise is pure pay-as-you-go usage with NO fixed monthly floor ($0 base + per-unit). Per 7.17, variable/pay-per-use tiers without a fixed monthly floor are excluded unless they are the only paid option — here they ARE the only self-serve paid option, but there is no fixed price POINT to capture (the floor is $0, which is the free tier). Setting null is the honest read: PostHog has no fixed-price paid cloud tier. CROSS-RECORD OBSERVATION: this is the FIRST Atlas record with cloud_entry_price=null — distinct from Grafana USD 19, Sentry USD 26, MongoDB USD 58.40, CockroachDB USD 438, all of which had a lowest fixed-price paid tier. CANDIDATE METHODOLOGY 7.17 CLARIFICATION (post-Free-Preview): the 'uncapped, unfloored pure-usage as only paid self-serve option' case resolves to null, not 0 (0 would conflate with the free tier)."
+      },
+      {
+        "field": "free_tier_exists",
+        "url": "https://posthog.com/pricing",
+        "type": "company-pricing-page",
+        "accessed_date": "2026-05-23",
+        "verification_method": "PostHog pricing page advertises a transparent, usage-based model with a generous free tier and no credit card required. free_tier_exists=true. Cross-confirmed across 2026 pricing aggregators (userorbit, checkthat.ai, usercall, costbench). PENDING Pablo browser-validation of the live page + Wayback save."
+      },
+      {
+        "field": "self_hosted_free_indefinite",
+        "url": "https://posthog.com/docs/self-host",
+        "type": "company-website",
+        "accessed_date": "2026-05-23",
+        "verification_method": "PostHog self-host docs confirm the MIT core is self-hostable free indefinitely (hobby build), while explicitly stating self-hosting is not recommended, unsupported, non-scalable, and missing paid + new features. self_hosted_free_indefinite=true (the OSS IS free indefinitely), with the heavy operational restrictions captured in self_hosted_restrictions. Cross-confirmed with posthog.com/docs/self-host/open-source/disclaimer."
+      }
+    ]
+  },
+  "metadata": {
+    "verification_status": "unverified",
+    "notes": "RECORD STATUS: DRAFT IN-PROGRESS as of 2026-05-23. Phases 0 (category), 1 (identity), 2 (license), 3 (commercial_model), 4 (pricing) drafted/decided 2026-05-23; Phase 5 (feature_gating), 6 (github velocity), 7 (strategic_signals), 8 (verification) NOT yet done. NOT a verified record; do not flip to verified until all phases complete + browser validations + 24h cool-off + Day-2 sanity. CATEGORY DECISION 2026-05-23: reclassified from the original stub 'observability' to 'analytics-bi'. PostHog's center of gravity is product analytics (product/web analytics, session replay, feature flags, experimentation, surveys, data warehouse, CDP), with only a minority observability toehold (error tracking, LLM observability). Grafana and Sentry are observability infrastructure; PostHog measures product/users, not systems. METHODOLOGICAL CONSEQUENCE: PostHog as 'analytics-bi' opens a new category (N=1) and does NOT test the tentative observability multi_region_ha='oss' signal (which stays at N=2 within observability, Grafana+Sentry). Forcing PostHog into 'observability' to extend that series would have contaminated the cross-record signal. CORE INSIGHT (the value of this record, per Pablo 2026-05-23): PostHog is the first DEPLOYMENT/COMMERCIALIZATION pivot in the dataset, NOT a licensing pivot. The other four records (MongoDB, CockroachDB, Sentry, Grafana) all pivoted their LICENSE (permissive/OSI → source-available or copyleft). PostHog kept a permissive MIT core that remains permissive, and instead migrated the COMMERCIAL PRODUCT operationally to SaaS-first (deprecated production self-hosting, Cloud-only paid + new features). license_history=[] reflects this: the core never relicensed. This is another value-capture strategy over OSS, and probably a more culturally 'modern' one: keep the core open (MIT), but make operating the serious product outside the cloud cease to be attractive. Where MongoDB/CockroachDB/Sentry/Grafana defended monetization via a LICENSING pivot, PostHog defended monetization via an OPERATIONAL/PRODUCT pivot. This distinction (licensing pivot vs commercialization pivot) should appear textually here and is candidate material for a future HYPOTHESES / analysis writeup on OSS monetization strategies. CANDIDATE METHODOLOGICAL OBSERVATION (Pablo 2026-05-23, NOT an amendment today — flag alongside the provisional 7.21): PostHog exposes a real semantic limitation of the current schema. self_hosted_free_indefinite=true captures that self-host is AVAILABLE, but not that it is OPERATIONALLY ENCOURAGED or PRODUCTION-GRADE. For PostHog, 'available' = true but 'production-grade / first-class self-host' = effectively false. A future schema revision may merit an explicit field separating availability from operational viability (e.g., self_host_production_grade or self_host_posture). Do not amend now; record as candidate. PRICING METHODOLOGY CALLS: (1) pricing_model='usage' not 'hybrid' (7.11) — pure multi-product metered consumption, no capacity/seat/time dimension in the canonical bill. (2) cloud_entry_price_usd_month=null (7.17) — no fixed-price paid cloud tier; pure pay-as-you-go with $0 floor; first null-cloud-entry record; candidate 7.17 clarification. ENTERPRISE TIER: a PostHog Enterprise plan with a reported ~USD 2,000/month base fee (adds SOC 2 Type II, HIPAA readiness, GDPR, extended retention up to 5-7 years, dedicated support) is reported by 2026 aggregators (userorbit etc.) but NOT yet browser-validated against the live pricing page; enterprise_min_declared_usd left null pending validation (if confirmed at USD 2,000/mo ≈ USD 24,000/yr, it would sit notably close to Grafana's USD 25,000/yr published Enterprise floor — a cross-record observation worth capturing once validated). Note period ambiguity: Grafana's enterprise_min was annual (USD 25,000/yr); PostHog's reported figure is monthly — annualize for comparability when captured. OPEN PABLO BROWSER-VALIDATIONS (vara alta, gate quality before verified): (a) github.com/PostHog/posthog/blob/master/LICENSE — confirm MIT at HEAD. (b) github.com/PostHog/posthog/blob/master/ee/LICENSE — confirm proprietary text + canonical name at HEAD. (c) Wayback-check root LICENSE across 2020/2022/2024 to confirm core was always MIT (no quiet relicense) → validates license_history=[]. (d) posthog.com/pricing live — confirm free-tier per-product numbers, no platform/seat fee, the reported ~USD 2,000/mo Enterprise base; trigger Wayback save https://web.archive.org/save/https://posthog.com/pricing. (e) posthog.com/docs/contribute + a recent PR — confirm cla_required (currently false, LOW confidence). (f) posthog.com/about — primary-source confirmation of founded_year 2020 + HQ. REMAINING PHASES TODO: Phase 3 commercial_model RESOLVED 2026-05-23 — type='saas-with-oss-marketing', primary_revenue_stream='cloud' (reasoning in commercial_model.sources + CORE INSIGHT above). Phase 5 feature_gating; Phase 6 github velocity (run ./scripts/github_stats.sh PostHog/posthog + paginated tags scan per 7.14); Phase 7 strategic_signals (license_changes_l24m=[]; funding_rounds_l24m has BOTH the Series D USD 70M @ USD 920M led by Stripe ~2025-06 [posthog.com/blog/series-d] AND the Series E USD 75M @ USD 1.4B led by Peak XV ~2025-09 [posthog.com/blog/series-e]; notable_customers TBD)."
+  }
 }
