@@ -1,23 +1,24 @@
 # Supabase — Phase 2A Prediction
 
-Status: PREDICTION_ONLY
+Status: LOCKED
 Evidence opened: NO
 Prediction author: Pablo
 Created: 2026-05-31
+Locked: 2026-05-31T18:18:37-03:00
 
 ## 0. Anchor data
 
-Founded year:
-Source for founded year (if checked):
+Founded year: unknown
+Source for founded year (if checked): none
 
 (Note: founded_year is needed to make the cohort prediction in §2 non-trivial. If you already know it, write it. If you would need to look it up, decide whether that counts as "opening evidence" — see §7.)
 
 ## 1. LP Role Prediction
 
-Prediction: `absent | defender | detonator | unknown`
+Prediction: `unknown`
 
 Rationale:
--
+- No tengo conocimiento suficiente previo sobre la historia de licenciamiento de Supabase para predecir honestamente sin abrir evidencia nueva.
 
 ## 2. Cohort Prediction
 
@@ -27,37 +28,37 @@ Bins (from PHASE2_PROTOCOL.md v0.1):
 - `post-pattern`: founded_year ≥ 2018
 - `unknown`: founded_year not known without opening evidence
 
-Prediction: `historical-cohort | borderline | post-pattern | unknown`
+Prediction: `post-pattern`
 
 Rationale:
--
+- Mi impresión general del ecosistema es que Supabase es una compañía relativamente reciente. No conozco el año exacto de fundación sin buscarlo.
 
 ## 3. Expected Classification
 
-Trajectory: `native | pivot | evolving`
-Distribution Posture: `cloud-only | cloud-first | dual-path | self-host-first`
-Primary Strategy: `LP | GG | TfI | CP | DND`
-Secondary Strategies:
+Trajectory: `unknown`
+Distribution Posture: `cloud-first`
+Primary Strategy: `unknown`
+Secondary Strategies: none
 
 Rationale:
--
+- Asocio intuitivamente a Supabase con una experiencia gestionada/cloud, pero no tengo suficiente conocimiento previo para predecir trayectoria o estrategia primaria sin abrir evidencia.
 
 ## 4. Expected Taxonomy Stress
 
-Prediction: `none | mild ambiguity | severe ambiguity | unclassifiable`
+Prediction: `mild ambiguity`
 
 Rationale:
--
+- Espero que el caso sea clasificable, pero sospecho que puede tensionar alguna frontera de la taxonomía sin llegar a ser un caso unclassifiable.
 
 ## 5. Surprising Result
 
 A result that would surprise this prediction:
--
+- Me sorprendería descubrir que Licensing Pivot es claramente la estrategia primaria y dominante del caso.
 
 ## 6. Fourth Scenario
 
 A scenario not contemplated by the taxonomy v0 that would itself count as evidence against v0:
--
+- Que el mecanismo principal de captura de valor de Supabase ocurra mediante una dimensión que no está representada explícitamente en STRATEGY_TAXONOMY_v0, obligando a describir el caso fuera de las categorías actuales.
 
 ## 7. Locked Notes
 
