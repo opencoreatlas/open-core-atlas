@@ -23,3 +23,9 @@ La predicción fue deliberadamente abstention-heavy: 3 de 5 campos (LP role, Tra
 Conclusión honesta: Supabase fue un buen **shakedown del PROTOCOLO** (ejerció la maquinaria de predicción → clasificación → comparación end-to-end) pero un **test débil del poder predictivo del operador**, porque la mayoría de los campos fueron abstenciones. No corresponde leer esto como "predicción validada"; corresponde leerlo como "el protocolo corre y la clasificación resolvió sin forzar". El test fuerte de la hipótesis LP llega cuando se acumulen stubs con prior no trivial y LP presente.
 
 Una observación a favor de la taxonomía (no parte del scoring): el caso instanció limpio la ortogonalidad Strategy ⊥ Posture (DND + cloud-first sin contradicción). Es evidencia consistente con el frame multidimensional, N=1, no promovible a validación.
+
+---
+
+## Post-hoc methodological footnote (2026-06-06, added during n8n stub #2 setup)
+
+Predictor and classifier were **not effectively separated** for Supabase: the Fase B classifier (Claude) had read the Fase A prediction (author: Pablo) before classifying. Different entities, but the classifier was not blind. **Contamination risk: LOW** — the prediction was mostly `unknown`, so there was little concrete hypothesis to anchor on. Supabase is **not invalidated**; it carries this note. Role separation (predictor / classifier / comparator) is formalized and mandatory from stub #2 per PHASE2_PROTOCOL v0.3 § Separación de roles.

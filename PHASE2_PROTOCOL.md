@@ -1,6 +1,6 @@
 ---
 name: Phase 2 Protocol — Stub Reclassification
-version: 0.2
+version: 0.3
 date: 2026-05-31
 status: active
 related:
@@ -15,6 +15,7 @@ related:
 # Phase 2 Protocol — Stub Reclassification
 
 > **v0.2 (2026-06-06)** — Protocol improvement discovered by shakedown #1 (Supabase), NOT an error correction. The protocol ran exactly as designed; the shakedown revealed that C_comparison could not distinguish an honest abstention from a hit or a miss. Added the `abstained → resolved` outcome and scoped LP-accuracy to predicted-non-`unknown` fields. See `phase2/PROTOCOL_EVAL_01_supabase.md`. No taxonomy / hypothesis / conceptual frame changed.
+> **v0.3 (2026-06-06)** — Role separation, discovered mid-stub during n8n (#2). Contamination comes from knowing the concrete predicted hypothesis (LP role, Primary, state), not from the physical file. Formalizes predictor / classifier / comparator with explicit read-permissions (see § Separación de roles). Applied mid-stub because it is the rule governing n8n's Fase B. No taxonomy / hypothesis / conceptual frame changed.
 
 ## Espíritu
 
@@ -98,6 +99,21 @@ Se abre sólo después de cerrar Fase B con commit. Compara predicción vs resul
 - **abstained → resolved** — la predicción fue `unknown` (abstención honesta válida per § Salvaguardas: "unknown is a valid prediction"); lo observado la resuelve, sin crédito ni débito predictivo.
 
 Rationale: registrar `abstained → resolved` preserva la diferencia entre predicción incorrecta, abstención honesta y predicción correcta — la distinción que el shakedown #1 mostró que faltaba.
+
+## Separación de roles (v0.3)
+
+La contaminación NO viene del archivo `A_prediction.md` sino de **conocer la hipótesis concreta predicha** (LP role, Primary Strategy, estado DISPUTED/CONFIDENT). Por eso los roles se separan explícitamente, y la ceguera del Classifier alcanza también a cualquier conversación donde la predicción se haya discutido — no sólo al archivo.
+
+| Rol | Fase | Puede leer A_prediction | Restricción |
+|---|---|---|---|
+| **Predictor** | A | sí (lo escribe) | su prior ES el objeto medido |
+| **Classifier** | B | **NO** | no puede haber visto la predicción concreta en NINGÚN medio (archivo, chat, resumen). Lee sólo PHASE2_PROTOCOL + STRATEGY_TAXONOMY_v0 + evidencia que él mismo abre. Sesión/contexto distinto. |
+| **Comparator** | C | sí | sólo después de que B esté sellada (commit + push) |
+| **Lock-validator** | — | sí (para certificar el lock) | al leer A queda **inhabilitado como Classifier** de ese stub |
+
+**Regla operativa:** el Classifier de Fase B no puede ser ninguna entidad (humano o sesión de modelo) que haya visto la predicción concreta. Desde n8n (stub #2) la separación es obligatoria.
+
+**Nota histórica Supabase (stub #1):** predictor (Pablo) y classifier (Claude) eran entidades distintas, pero el classifier había leído la predicción antes de Fase B → no estaban efectivamente separados. Riesgo bajo porque la predicción era mayormente `unknown` (poco a lo que anclar). Supabase NO se invalida; lleva esta nota (ver `phase2/supabase/C_comparison.md` § footnote).
 
 ## Salvaguardas adicionales
 
