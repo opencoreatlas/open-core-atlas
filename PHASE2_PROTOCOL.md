@@ -1,6 +1,6 @@
 ---
 name: Phase 2 Protocol — Stub Reclassification
-version: 0.1
+version: 0.2
 date: 2026-05-31
 status: active
 related:
@@ -13,6 +13,8 @@ related:
 ---
 
 # Phase 2 Protocol — Stub Reclassification
+
+> **v0.2 (2026-06-06)** — Protocol improvement discovered by shakedown #1 (Supabase), NOT an error correction. The protocol ran exactly as designed; the shakedown revealed that C_comparison could not distinguish an honest abstention from a hit or a miss. Added the `abstained → resolved` outcome and scoped LP-accuracy to predicted-non-`unknown` fields. See `phase2/PROTOCOL_EVAL_01_supabase.md`. No taxonomy / hypothesis / conceptual frame changed.
 
 ## Espíritu
 
@@ -84,11 +86,18 @@ Archivo: `phase2/{stub-slug}/C_comparison.md`
 
 Se abre sólo después de cerrar Fase B con commit. Compara predicción vs resultado:
 
-- `LP role predicho` vs `LP role observado` → match / no-match
-- `cohort prediction` vs `resultado real` → match / no-match
-- `Primary esperada` vs `Primary observada` → match / no-match
+- `LP role predicho` vs `LP role observado` → match / no-match / abstained
+- `cohort prediction` vs `resultado real` → match / no-match / abstained
+- `Primary esperada` vs `Primary observada` → match / no-match / abstained
 - `cuarto escenario` → emergió / no emergió / emergió otro no contemplado
 - `nota interpretativa`: 2-3 líneas
+
+**Outcome legend (v0.2 — improvement discovered by shakedown #1, not error correction).** La comparación distingue **tres** resultados, no dos:
+- **match** — predicción no-`unknown` y coincide con lo observado.
+- **no-match** — predicción no-`unknown` y difiere de lo observado.
+- **abstained → resolved** — la predicción fue `unknown` (abstención honesta válida per § Salvaguardas: "unknown is a valid prediction"); lo observado la resuelve, sin crédito ni débito predictivo.
+
+Rationale: registrar `abstained → resolved` preserva la diferencia entre predicción incorrecta, abstención honesta y predicción correcta — la distinción que el shakedown #1 mostró que faltaba.
 
 ## Salvaguardas adicionales
 
@@ -118,6 +127,8 @@ Heredados de `HYPOTHESIS_LP_DETONANTE_VS_DEFENSOR.md` § Criterios. No se duplic
 - **Validación:** ≥80% aciertos predicción LP role + al menos 1 contraejemplo de cada tipo en § Predicción discriminante + counter-hipótesis cohorte descartada.
 - **Refutación:** <50% aciertos, o cohorte gana sistemáticamente.
 - **Estado intermedio:** 50-80% acierto, Fase 3 requerida.
+
+**Cómputo de aciertos (v0.2).** El porcentaje de aciertos se calcula **sólo sobre los campos predichos no-`unknown`**. Las abstenciones (`abstained → resolved`) no entran en numerador ni denominador de accuracy; se trackean por separado como **tasa de abstención**, que es señal en sí misma (abstención alta = prior del operador débil para esa clase de stub; ver `phase2/PROTOCOL_EVAL_01_supabase.md` § C2).
 
 ## Secuencia operativa
 
