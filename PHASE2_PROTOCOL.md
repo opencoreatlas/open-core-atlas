@@ -35,6 +35,8 @@ Tres objetos distintos, en simultáneo, con criterios separados:
 
 Los dos checkpoints pueden no coincidir en el tiempo. Pueden cumplirse 10 stubs taxonomía con sólo 4-5 LP presente; el checkpoint LP se evalúa cuando se llega a 10 LP presentes, no antes.
 
+> **"LP presente" = LP canónico** (transición desde core OSI-open → más restrictivo). Definición sellada 2026-06-07 en `HYPOTHESIS_LP_DETONANTE_VS_DEFENSOR.md` § Definición de "LP-present". Records born-fair-code (nunca OSI-open) **NO cuentan** al N=10 canónico ni satisfacen los contraejemplos discriminantes; se trackean en `phase2/born-fair-code-register.md`. Aplica al checkpoint LP **y** a ambos contraejemplos (tipo 1 y tipo 2).
+
 ## Pre-comprometidos heredados (no se renegocian)
 
 1. **Frame-level lock** (`METHODOLOGY_PRINCIPLES.md` § 1): Fase 2 no tiene permiso para modificar `STRATEGY_TAXONOMY_v0.md`. Cualquier refinement candidato sólo se valida en Fase 3 con evidencia nueva.

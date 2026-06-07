@@ -96,10 +96,25 @@ Para distinguir las dos hipótesis se necesita encontrar al menos uno de estos d
 | Mezcla parcial (1 sí 2 no, o viceversa) | Ambas hipótesis explican parcialmente. Refinamiento adicional o Fase 3. |
 | Hipótesis principal acierta <50% de LP roles | Hipótesis principal refutada independientemente de la cohorte. |
 
+## Definición de "LP-present" (denominador canónico) — sellada 2026-06-07
+
+Regla definicional pre-comprometida **antes de abrir evidencia de stub #3**. Resuelve una ambigüedad latente en la cláusula *"core previamente abierto"* de la taxonomía (`STRATEGY_TAXONOMY_v0.md` § Dimensión 1), **expuesta —no creada—** por n8n (stub #2, born fair-code / never OSI-open).
+
+No es un cambio de la hipótesis guiado por evidencia: aplica la definición de LP que la taxonomía **ya tenía**, y su efecto es **reducir** el peso sustantivo de n8n (le quita el crédito de contraejemplo tipo 1) — lo opuesto a un fit motivado. Compatible con el frame-level lock (`../METHODOLOGY_PRINCIPLES.md` § 1): completa una definición, no reescribe el criterio para encajar un resultado.
+
+> **Canonical LP-present rule.** For purposes of the LP detonator-vs-defender hypothesis, "LP-present" means a **canonical Licensing Pivot**: a transition from an OSI-open core license to a more restrictive source-available or proprietary license. Cases born under source-available or fair-code licensing do **not** count toward canonical LP-present N, even if they later harden licensing further. They are tracked separately as **born-fair-code / non-canonical LP** observations until a dedicated hypothesis is warranted.
+
+Consecuencias operativas (pre-comprometidas):
+
+1. El **N=10** de Thresholds B cuenta **sólo** records con LP canónico.
+2. Un caso born-fair-code que endurece licencia más tarde **no** es "LP defensor" ni "LP detonante" canónico → **no puede satisfacer** los contraejemplos tipo 1 ni tipo 2 de § Predicción discriminante.
+3. El registro born-fair-code es **watch-list observacional, sin criterio de validación propio**. Se promueve a hipótesis con criterio ex-ante propio sólo si/cuando alcance tamaño que lo amerite (N=1 hoy = pseudo-hipótesis; no se formula). Registro: `phase2/born-fair-code-register.md`.
+4. **n8n (stub #2)** → re-etiquetado **contraejemplo tipo 1 NO-canónico (asterisco)**. Su valor de protocolo queda intacto (blind classifier reprodujo GG/DISPUTED por inferencia); su aporte al scoreboard sustantivo de esta hipótesis = **nulo**.
+
 ## Criterios de validación / refutación / promoción a amendment
 
 **Validación** (gana derecho a amendment de `STRATEGY_TAXONOMY_v0.md`):
-- Fase 2 evalúa ≥10 records adicionales con LP presente (defensor o detonante).
+- Fase 2 evalúa ≥10 records adicionales con **LP presente canónico** (defensor o detonante; ver § Definición de "LP-present").
 - Predicción ex-ante del LP role acierta en ≥80% de esos records.
 - Al menos un contraejemplo de cada tipo en la § Predicción discriminante.
 - Counter-hipótesis cohorte queda descartada como explicación principal por evidencia empírica.
